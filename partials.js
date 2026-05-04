@@ -39,7 +39,12 @@
       else nav.classList.remove('scrolled');
     };
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', onScroll);
+    window.addEventListener('pageshow', onScroll);
+    window.addEventListener('hashchange', onScroll);
     onScroll();
+    requestAnimationFrame(onScroll);
+    setTimeout(onScroll, 150);
     const toggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     toggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
