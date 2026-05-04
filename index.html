@@ -116,11 +116,13 @@
 
 /* === Sobre === */
 .sobre-grid {
-  display: grid; grid-template-columns: 1fr 1.1fr;
-  gap: 80px; align-items: center;
+  display: grid; grid-template-columns: minmax(280px, 420px) 1fr;
+  gap: 56px; align-items: center;
 }
 .sobre-img {
-  position: relative; aspect-ratio: 4/5;
+  position: relative; aspect-ratio: 4/3;
+  width: 100%; max-width: 420px;
+  justify-self: end;
   background: var(--paper-deep);
   overflow: hidden;
 }
@@ -214,6 +216,11 @@
 
 @media (max-width: 960px) {
   .sobre-grid { grid-template-columns: 1fr; gap: 48px; }
+  .sobre-img {
+    justify-self: stretch;
+    max-width: none;
+    aspect-ratio: 16/10;
+  }
   .hero-meta { gap: 32px; bottom: 24px; }
   .cta-strip .container { grid-template-columns: 1fr; gap: 48px; }
   .cta-card { border-right: none; border-bottom: 1px solid var(--rule-light); padding-bottom: 32px; }

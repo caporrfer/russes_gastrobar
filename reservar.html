@@ -31,7 +31,9 @@
   grid-template-columns: 1.15fr 1fr;
   gap: 64px;
   align-items: start;
+  min-width: 0;
 }
+.reserva-grid > * { min-width: 0; }
 
 /* Stepper */
 .steps {
@@ -308,10 +310,62 @@
   .summary { position: static; }
 }
 @media (max-width: 600px) {
+  .draft-notice {
+    padding: 12px 18px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+  }
+  .reserva-section { padding: 56px 0; }
   .form-row { grid-template-columns: 1fr; }
   .guests-row { grid-template-columns: repeat(4, 1fr); }
-  .steps { overflow-x: auto; }
-  .step { padding: 14px 14px 16px; white-space: nowrap; }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+    gap: 0;
+  }
+  .step {
+    padding: 12px 6px 14px;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    white-space: normal;
+    gap: 7px;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    line-height: 1.25;
+  }
+  .step .num { width: 24px; height: 24px; }
+  .cal-head { gap: 12px; }
+  .cal-month {
+    min-width: 0;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+  .cal-grid { gap: 4px; }
+  .cal-dow {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+  }
+  .service-toggle {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .times-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cta-row { align-items: stretch; }
+  .cta-row .btn { justify-content: center; width: 100%; }
+  .summary { padding: 28px 22px; }
+  .summary-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .summary-row .v { text-align: left; }
+  .confirm-card { padding: 24px 20px; }
+  .confirm-card .row { grid-template-columns: 1fr; gap: 4px; }
+  .confirm-card .k { min-width: 0; }
 }
 </style>
 </head>
