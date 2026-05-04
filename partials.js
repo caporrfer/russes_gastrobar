@@ -58,9 +58,9 @@
         <div class="container">
           <div class="footer-grid">
             <div class="footer-brand">
-              <div class="name">Russes Gastrobar</div>
+              <div class="name">Russes Aracena</div>
               <span class="signature">Rufino Serrano</span>
-              <p>Cocina de la Sierra de Aracena. Producto local y mesa generosa. Desde 1983 en C. Noria, 1.</p>
+              <p>Cocina de la Sierra de Aracena. Producto local, técnica y sabor. Desde 1983 en C. Noria, 1.</p>
             </div>
             <div>
               <h4>Visítanos</h4>
@@ -78,7 +78,7 @@
             </div>
           </div>
           <div class="footer-bottom">
-            <p>© Russes Gastrobar · Todos los derechos reservados</p>
+            <p>© Russes Aracena · Todos los derechos reservados</p>
             <p>Aracena · Sierra de Huelva</p>
           </div>
         </div>
