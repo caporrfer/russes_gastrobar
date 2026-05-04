@@ -21,11 +21,7 @@
       <header class="nav ${transparent ? 'transparent' : 'solid'}" id="nav">
         <div class="container">
           <a href="index.html" class="brand" aria-label="Russes Gastrobar">
-            <span class="brand-mark">R</span>
-            <span class="brand-text">
-              <span class="name">Russes</span>
-              <span class="sub">Aracena</span>
-            </span>
+            <img src="images/logo.png" alt="Russes Gastrobar Aracena" class="brand-logo" />
           </a>
           <nav class="links">${linkHtml}</nav>
           <a href="tel:${PHONE}" class="btn">Llamar</a>

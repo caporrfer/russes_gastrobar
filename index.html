@@ -73,11 +73,18 @@
   text-transform: uppercase; letter-spacing: -0.01em;
   margin: 0;
 }
+.hero-gastrobar {
+  display: block;
+  font-family: var(--slab); font-weight: 400;
+  font-size: clamp(18px, 2.8vw, 36px);
+  letter-spacing: 0.38em; text-transform: uppercase;
+  color: var(--gold); margin-top: 6px; line-height: 1;
+}
 .hero .signature {
   font-family: var(--script);
   font-size: clamp(38px, 5vw, 78px);
   color: var(--gold); display: block;
-  line-height: 1; margin-top: 10px;
+  line-height: 1; margin-top: 14px;
 }
 .hero .tagline {
   font-family: var(--slab); font-weight: 300;
@@ -223,8 +230,9 @@
     <div class="hero-inner">
       <div class="eyebrow">Aracena · Desde 1983</div>
       <h1>Russes</h1>
+      <span class="hero-gastrobar">Gastrobar</span>
       <span class="signature">Rufino Serrano</span>
-      <p class="tagline">Gastrobar en Aracena. Cocina de la Sierra, producto local.</p>
+      <p class="tagline">Cocina de la Sierra, producto local.</p>
       <div class="hero-cta">
         <a href="carta.html" class="btn ghost">Ver carta</a>
         <a href="reservar.html" class="btn">Reservar mesa</a>

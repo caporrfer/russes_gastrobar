@@ -44,29 +44,15 @@ header.nav.solid, header.nav.scrolled {
   box-shadow: 0 1px 0 var(--rule), 0 8px 24px rgba(46,31,18,0.08);
 }
 header.nav .container { display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; gap: 14px; color: var(--bark); }
-.brand-mark {
-  width: 48px; height: 48px;
-  border: 2px solid var(--bark);
-  display: grid; place-items: center;
-  font-family: var(--slab);
-  font-size: 20px; font-weight: 700;
-  color: var(--bark);
-  background: var(--paper);
+.brand { display: flex; align-items: center; color: var(--bark); }
+.brand-logo {
+  height: 56px;
+  width: auto;
+  display: block;
 }
-.brand-text { display: flex; flex-direction: column; line-height: 1; }
-.brand-text .name {
-  font-family: var(--slab); font-size: 20px; font-weight: 700;
-  letter-spacing: 0.06em; text-transform: uppercase; color: var(--bark);
-}
-.brand-text .sub { font-family: var(--script); font-size: 18px; color: var(--bark); margin-top: 2px; line-height: 1; }
 
-/* nav transparent on hero */
-header.nav.transparent:not(.scrolled) .brand,
-header.nav.transparent:not(.scrolled) .brand .brand-mark,
-header.nav.transparent:not(.scrolled) .brand .name,
-header.nav.transparent:not(.scrolled) .brand .sub { color: var(--paper); }
-header.nav.transparent:not(.scrolled) .brand-mark { border-color: var(--paper); background: transparent; }
+/* nav transparent on hero — invert logo to white */
+header.nav.transparent:not(.scrolled) .brand-logo { filter: brightness(0) invert(1); }
 header.nav.transparent:not(.scrolled) nav.links a { color: var(--paper); }
 header.nav.transparent:not(.scrolled) .menu-toggle { color: var(--paper); border-color: var(--paper); }
 
