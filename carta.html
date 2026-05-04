@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Carta · Russes Gastrobar | Aracena</title>
+<meta name="description" content="Carta de Russes Gastrobar: tapas, raciones, carnes, pescados y postres. Cocina de la Sierra de Aracena." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&family=Allura&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.page-hero.carta::before { background-image: url('images/interior-bar.png'); }
+
+/* === Carta layout === */
+.carta-section { padding: 90px 0; background: var(--paper); }
+.carta-section + .carta-section { padding-top: 0; }
+
+.carta-section .head {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: end;
+  margin-bottom: 56px;
+  padding-bottom: 28px;
+  border-bottom: 1.5px solid var(--bark);
+}
+.carta-section h2 {
+  font-family: var(--slab);
+  font-size: clamp(42px, 5.5vw, 76px);
+  font-weight: 700; line-height: 1;
+  text-transform: uppercase;
+  color: var(--bark);
+}
+.carta-section h2 .num {
+  display: block;
+  font-family: var(--slab); font-size: 13px;
+  letter-spacing: 0.3em; color: var(--cork);
+  margin-bottom: 18px; font-weight: 500;
+}
+.carta-section .descr {
+  font-family: var(--slab); font-weight: 300;
+  font-size: 16px; line-height: 1.6;
+  color: var(--ink); opacity: 0.7;
+  max-width: 460px; justify-self: end; text-align: right;
+}
+
+.carta-list {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0 80px;
+  list-style: none;
+}
+.carta-list li {
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--rule);
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 18px; align-items: baseline;
+}
+.carta-list li:last-child { border-bottom: none; }
+.carta-list .name {
+  font-family: var(--slab); font-size: 16px;
+  font-weight: 600; color: var(--bark);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+.carta-list .desc {
+  display: block; font-family: var(--slab); font-weight: 300;
+  font-size: 14px; color: var(--ink); opacity: 0.7;
+  text-transform: none; letter-spacing: 0;
+  margin-top: 4px; line-height: 1.5;
+}
+.carta-list .price {
+  font-family: var(--slab); font-size: 17px;
+  font-weight: 700; color: var(--bark-deep);
+  white-space: nowrap;
+}
+.carta-list .price.unit {
+  font-size: 13px;
+}
+.carta-list .price .small {
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 0.1em; opacity: 0.7;
+  display: block; text-transform: uppercase;
+  text-align: right; margin-top: 2px;
+}
+
+/* Section variations */
+.carta-section.alt { background: var(--paper-deep); }
+.carta-section.dark {
+  background: var(--bark-deep); color: var(--paper);
+}
+.carta-section.dark h2 { color: var(--paper); }
+.carta-section.dark .head { border-bottom-color: var(--paper); }
+.carta-section.dark h2 .num { color: var(--gold); }
+.carta-section.dark .descr { color: var(--paper-soft); opacity: 0.85; }
+.carta-section.dark .carta-list .name { color: var(--paper); }
+.carta-section.dark .carta-list .desc { color: var(--paper-soft); }
+.carta-section.dark .carta-list .price { color: var(--gold); }
+.carta-section.dark .carta-list li { border-bottom-color: var(--rule-light); }
+
+/* postres header pull-quote */
+.postres-quote {
+  text-align: center; max-width: 760px;
+  margin: 0 auto 48px;
+  font-family: var(--script);
+  font-size: clamp(28px, 3.6vw, 44px);
+  color: var(--gold); line-height: 1.3;
+}
+.carta-section.dark .postres-quote::before,
+.carta-section.dark .postres-quote::after {
+  content: '"'; opacity: 0.5;
+}
+
+.carta-foot {
+  background: var(--bark-darker); color: var(--paper);
+  padding: 90px 0; text-align: center;
+}
+.carta-foot p {
+  font-family: var(--slab); font-weight: 300;
+  font-size: 17px; color: var(--paper-soft);
+  max-width: 560px; margin: 0 auto 28px;
+  line-height: 1.6;
+}
+.carta-foot .small {
+  font-family: var(--slab); font-size: 11px;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gold); margin-top: 32px;
+  display: block; opacity: 0.85;
+}
+
+@media (max-width: 800px) {
+  .carta-list { grid-template-columns: 1fr; gap: 0; }
+  .carta-section .head { grid-template-columns: 1fr; gap: 14px; }
+  .carta-section .descr { justify-self: start; text-align: left; max-width: none; }
+}
+</style>
+</head>
+<body>
+<div id="header-mount"></div>
+
+<section class="page-hero carta" data-screen-label="Carta hero">
+  <div class="container">
+    <div class="inner">
+      <div class="eyebrow" style="color: var(--gold);">— Nuestra carta —</div>
+      <h1>La Carta</h1>
+      <span class="signature">Rufino Serrano</span>
+      <p>Cocina de la Sierra con el toque de la casa. Producto local, raciones generosas y platos pensados para compartir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DE LA TIERRA -->
+<section class="carta-section reveal" data-screen-label="De la tierra">
+  <div class="container">
+    <div class="head">
+      <h2><span class="num">— 01 —</span>De la tierra</h2>
+      <p class="descr">Lo mejor de la dehesa. Ibérico de bellota y quesos artesanos de la zona.</p>
+    </div>
+    <ul class="carta-list">
+      <li><div><span class="name">Jamón ibérico de bellota 100×100</span><span class="desc">DOP Jabugo, cortado a cuchillo.</span></div><span class="price">22,00 €</span></li>
+      <li><div><span class="name">Lomito ibérico entero</span></div><span class="price">22,00 €</span></li>
+      <li><div><span class="name">Tabla de quesos de la zona</span><span class="desc">Selección de quesos artesanos de la Sierra.</span></div><span class="price">15,00 €</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FRÍOS -->
+<section class="carta-section alt reveal" data-screen-label="Frios">
+  <div class="container">
+    <div class="head">
+      <h2><span class="num">— 02 —</span>Fríos</h2>
+      <p class="descr">Para empezar la mesa. Tapas frescas, ensaladas y el toque viajero de la casa.</p>
+    </div>
+    <ul class="carta-list">
+      <li><div><span class="name">Salmorejo tradicional</span></div><span class="price">4,00 €</span></li>
+      <li><div><span class="name">Gazpacho verde</span><span class="desc">Manzana y aguacate con tartar de gamba blanca y cilantro.</span></div><span class="price">4,00 €</span></li>
+      <li><div><span class="name">Ensaladilla 2.0 by Carmen</span></div><span class="price">4,00 €</span></li>
+      <li><div><span class="name">Burrata</span><span class="desc">Falso panel de miel y hojas de verano.</span></div><span class="price">4,50 €</span></li>
+      <li><div><span class="name">Tomate Abuela Antonia</span></div><span class="price">10,00 €</span></li>
+      <li><div><span class="name">Ensalada vietnamita</span><span class="desc">Papaya, feta y salmón ahumado.</span></div><span class="price">9,00 €</span></li>
+      <li><div><span class="name">Ensalada de frutas de temporada</span><span class="desc">Con quinoa frita.</span></div><span class="price">9,00 €</span></li>
+      <li><div><span class="name">Milhojas de sandía asada</span><span class="desc">Queso de cabra y pistachos.</span></div><span class="price">9,00 €</span></li>
+      <li><div><span class="name">Anchoa del Cantábrico -00-</span><span class="desc">Picada de piquillo y su tosta.</span></div><span class="price">3,50 €<span class="small">unidad</span></span></li>
+      <li><div><span class="name">Lomo de sardina</span><span class="desc">Picada de verduras y su tosta.</span></div><span class="price">3,50 €<span class="small">unidad</span></span></li>
+      <li><div><span class="name">Foie de pato</span><span class="desc">Mermelada de tomate especiada y tierra de cacao.</span></div><span class="price">4,50 €</span></li>
+      <li><div><span class="name">Mojama de atún de Isla Cristina</span><span class="desc">Con almendras salteadas.</span></div><span class="price">12,00 €</span></li>
+      <li><div><span class="name">Carpaccio de entrecot maduro</span><span class="desc">A la vainilla.</span></div><span class="price">12,00 €</span></li>
+      <li><div><span class="name">Tartar de salchichón ibérico</span><span class="desc">Con gominola de yema.</span></div><span class="price">13,00 €</span></li>
+      <li><div><span class="name">Lasaña crujiente de atún</span><span class="desc">Espuma de bechamel.</span></div><span class="price">16,00 €</span></li>
+      <li><div><span class="name">Totopos</span><span class="desc">Guacamole, queso cheddar y crema agria.</span></div><span class="price">6,50 €</span></li>
+      <li><div><span class="name">Danone de crème brûlée</span><span class="desc">Foie y mango.</span></div><span class="price">5,00 €</span></li>
+      <li><div><span class="name">Rollitos de arroz thai rellenos</span></div><span class="price">8,50 €</span></li>
+      <li><div><span class="name">Tartar de salmón noruego</span><span class="desc">Aguacate y sus tostas.</span></div><span class="price">16,00 €</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CALIENTES -->
+<section class="carta-section reveal" data-screen-label="Calientes">
+  <div class="container">
+    <div class="head">
+      <h2><span class="num">— 03 —</span>Calientes</h2>
+      <p class="descr">Tapas y raciones de cuchara y sartén. Para compartir en mesa larga.</p>
+    </div>
+    <ul class="carta-list">
+      <li><div><span class="name">Patatas bravas… bravas</span><span class="desc">Espuma de alioli.</span></div><span class="price">3,00 €</span></li>
+      <li><div><span class="name">Satay de pollo</span><span class="desc">Salsa de cacahuete.</span></div><span class="price">5,00 €</span></li>
+      <li><div><span class="name">Cartucho de oreja frita</span><span class="desc">Con chili dulce.</span></div><span class="price">3,50 €</span></li>
+      <li><div><span class="name">Brocheta kaffa mix</span><span class="desc">Macerada con su tosta.</span></div><span class="price">8,00 €</span></li>
+      <li><div><span class="name">Canelón ibérico o de espinacas</span><span class="desc">Bechamel de queso de cabra.</span></div><span class="price">4,50 €</span></li>
+      <li><div><span class="name">Albóndigas «marranas»</span><span class="desc">Curry rojo y chips de patata.</span></div><span class="price">4,00 €</span></li>
+      <li><div><span class="name">Croquetas del puchero</span></div><span class="price">10,00 €</span></li>
+      <li><div><span class="name">Brotes de coliflor frita</span><span class="desc">Vinagreta de refrito.</span></div><span class="price">8,00 €</span></li>
+      <li><div><span class="name">Choquito entero de trasmallo</span><span class="desc">Con salsa tártara.</span></div><span class="price">8,00 €</span></li>
+      <li><div><span class="name">Nuestros fish & chips</span><span class="desc">Mahonesa de mostaza verde.</span></div><span class="price">10,00 €</span></li>
+      <li><div><span class="name">Alcachofas salteadas</span><span class="desc">Y jamón ibérico.</span></div><span class="price">15,00 €</span></li>
+      <li><div><span class="name">Gyozas de ibérico</span><span class="desc">Salsa de chili dulce.</span></div><span class="price">13,00 €</span></li>
+      <li><div><span class="name">Risotto de arroz negro</span><span class="desc">Pulpo frito y alioli de pera asada.</span></div><span class="price">12,00 €</span></li>
+      <li><div><span class="name">Pad thai</span><span class="desc">Langostinos y verduritas.</span></div><span class="price">12,00 €</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CARNES -->
+<section class="carta-section dark reveal" data-screen-label="Carnes">
+  <div class="container">
+    <div class="head">
+      <h2><span class="num">— 04 —</span>Nuestras carnes</h2>
+      <p class="descr">Producto ibérico de bellota y carnes a la plancha. Plato fuerte de la casa.</p>
+    </div>
+    <ul class="carta-list">
+      <li><div><span class="name">Costilla de cerdo</span><span class="desc">Reducción de vino.</span></div><span class="price">14,00 €</span></li>
+      <li><div><span class="name">San Jacobo ibérico</span><span class="desc">Queso de cabra de la sierra.</span></div><span class="price">16,00 €</span></li>
+      <li><div><span class="name">Cochinillo crujiente</span></div><span class="price">20,00 €</span></li>
+      <li><div><span class="name">Raviolis de cola de toro al anís</span><span class="desc">Patata trufada y su jugo.</span></div><span class="price">13,00 €</span></li>
+      <li><div><span class="name">Carnes ibéricas a la plancha</span></div><span class="price">16,50 €</span></li>
+      <li><div><span class="name">Solomillo de ternera ecológico</span></div><span class="price">16,00 €</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CON LAS MANOS -->
+<section class="carta-section reveal" data-screen-label="Con las manos">
+  <div class="container">
+    <div class="head">
+      <h2><span class="num">— 05 —</span>Con las manos</h2>
+      <p class="descr">Bocadillos, baos, burgers y perritos. Cuando apetece comer sin cubiertos.</p>
+    </div>
+    <ul class="carta-list">
+      <li><div><span class="name">Crispy chicken estilo cajún</span><span class="desc">Repollo agridulce.</span></div><span class="price">6,00 €</span></li>
+      <li><div><span class="name">Sándwich de pan brioche</span><span class="desc">Salmón ahumado y salsa tártara.</span></div><span class="price">4,50 €</span></li>
+      <li><div><span class="name">Burger buey</span><span class="desc">Queso de cabra, huevo frito y ensalada.</span></div><span class="price">9,00 €</span></li>
+      <li><div><span class="name">Pan bao de manitas de cerdo</span><span class="desc">Salsa de matanza.</span></div><span class="price">6,50 €</span></li>
+      <li><div><span class="name">Saam de carrilleras ibéricas</span><span class="desc">Mahonesa de sriracha.</span></div><span class="price">4,50 €</span></li>
+      <li><div><span class="name">Perrito ibérico</span><span class="desc">Salchichas frescas, ensalada, cebolla crujiente y kétchup de curry.</span></div><span class="price">4,50 €</span></li>
+      <li><div><span class="name">Bikini de jamón de pato</span><span class="desc">Queso emmental.</span></div><span class="price">6,00 €</span></li>
+    </ul>
+    <p style="margin-top: 32px; font-family: var(--slab); font-size: 13px; letter-spacing: 0.06em; color: var(--cork); text-align: right;">Pan y regañá por comensal · 0,90 €</p>
+  </div>
+</section>
+
+<!-- POSTRES -->
+<section class="carta-section dark reveal" data-screen-label="Postres">
+  <div class="container">
+    <div class="head">
+      <h2><span class="num">— 06 —</span>Postres</h2>
+      <p class="descr">Hechos en casa. Para cerrar la mesa.</p>
+    </div>
+    <p class="postres-quote">La risa es como el postre, para ella siempre hay hueco</p>
+    <ul class="carta-list">
+      <li><div><span class="name">Nido</span></div><span class="price">6,00 €</span></li>
+      <li><div><span class="name">Tiramisú</span></div><span class="price">6,00 €</span></li>
+      <li><div><span class="name">Tomate</span><span class="desc">Cremoso de queso y frambuesa.</span></div><span class="price">6,00 €</span></li>
+      <li><div><span class="name">Tocino de cielo</span></div><span class="price">6,00 €</span></li>
+      <li><div><span class="name">Limón</span></div><span class="price">6,00 €</span></li>
+      <li><div><span class="name">Tres chocolate</span></div><span class="price">6,00 €</span></li>
+      <li><div><span class="name">Chocolatísimo</span></div><span class="price">6,00 €</span></li>
+      <li><div><span class="name">Coulant</span><span class="desc">Con helado de frambuesa.</span></div><span class="price">6,00 €</span></li>
+      <li><div><span class="name">Tarta de queso horneada</span></div><span class="price">6,00 €</span></li>
+      <li><div><span class="name">Tarta de manzana</span></div><span class="price">6,00 €</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="carta-foot">
+  <div class="container">
+    <div class="ornament"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+    <p>Si padece alguna alergia o intolerancia, comuníquenoslo. Estaremos encantados de adaptar el plato.</p>
+    <a href="reservar.html" class="btn ghost">Reservar mesa</a>
+    <span class="small">Russes Gastrobar · Aracena · Desde 1983</span>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="partials.js"></script>
+<script>
+  RussesPage.renderHeader('carta', false);
+  RussesPage.renderFooter();
+  RussesPage.setupReveal();
+</script>
+</body>
+</html>

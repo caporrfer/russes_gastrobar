@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reservar mesa · Russes Gastrobar | Aracena</title>
+<meta name="description" content="Reserva tu mesa en Russes Gastrobar. Cocina de la Sierra de Aracena." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&family=Allura&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+.page-hero.res::before { background-image: url('images/mesa-larga.png'); }
+
+.draft-notice {
+  background: var(--gold);
+  padding: 14px 0;
+  text-align: center;
+  font-family: var(--slab); font-size: 11px;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--bark-darker); font-weight: 600;
+}
+
+.reserva-section { padding: 90px 0; background: var(--paper); }
+
+.reserva-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* Stepper */
+.steps {
+  display: flex; gap: 0; margin-bottom: 36px;
+  border-bottom: 1.5px solid var(--rule);
+}
+.step {
+  padding: 16px 22px 18px;
+  font-family: var(--slab); font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--cork); cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1.5px;
+  display: flex; align-items: center; gap: 10px;
+}
+.step.active {
+  color: var(--bark);
+  border-bottom-color: var(--bark);
+  font-weight: 700;
+}
+.step.done { color: var(--bark-deep); }
+.step .num {
+  width: 22px; height: 22px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 11px;
+}
+.step.active .num { background: var(--bark); color: var(--paper); border-color: var(--bark); }
+.step.done .num { background: var(--moss); color: var(--paper); border-color: var(--moss); }
+
+.step-title {
+  font-family: var(--slab);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700; text-transform: uppercase;
+  color: var(--bark); margin-bottom: 8px;
+  line-height: 1.05;
+}
+.step-sub {
+  font-family: var(--slab); font-weight: 300;
+  font-size: 15px; color: var(--ink); opacity: 0.7;
+  margin-bottom: 32px; line-height: 1.6;
+}
+
+/* Calendar */
+.cal-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px;
+}
+.cal-month {
+  font-family: var(--slab); font-size: 18px;
+  font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--bark);
+}
+.cal-nav {
+  background: transparent; border: 1.5px solid var(--bark);
+  color: var(--bark); width: 38px; height: 38px;
+  cursor: pointer; font-family: var(--slab); font-size: 18px;
+  display: grid; place-items: center;
+}
+.cal-nav:hover { background: var(--bark); color: var(--paper); }
+.cal-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.cal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.cal-dow {
+  font-family: var(--slab); font-size: 10px;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--cork); text-align: center;
+  padding: 6px 0;
+}
+.cal-day {
+  aspect-ratio: 1;
+  display: grid; place-items: center;
+  font-family: var(--slab); font-size: 15px;
+  color: var(--bark-deep); cursor: pointer;
+  border: 1.5px solid transparent;
+  background: var(--paper-deep);
+  transition: all 0.18s;
+}
+.cal-day:hover:not(.disabled) {
+  border-color: var(--bark);
+}
+.cal-day.empty { background: transparent; cursor: default; }
+.cal-day.disabled { color: var(--ink); opacity: 0.25; cursor: not-allowed; background: transparent; text-decoration: line-through; }
+.cal-day.selected { background: var(--bark); color: var(--paper); border-color: var(--bark); font-weight: 700; }
+.cal-day.today { box-shadow: inset 0 0 0 1.5px var(--gold); }
+.cal-day.closed { background: repeating-linear-gradient(45deg, var(--paper-deep), var(--paper-deep) 4px, var(--paper) 4px, var(--paper) 8px); color: var(--cork); cursor: not-allowed; }
+
+/* Service / time */
+.service-toggle { display: flex; gap: 12px; margin-bottom: 32px; }
+.service-toggle button {
+  flex: 1; padding: 18px 20px;
+  background: var(--paper-deep); color: var(--bark-deep);
+  border: 1.5px solid transparent; cursor: pointer;
+  font-family: var(--slab); text-align: left;
+  transition: all 0.2s;
+}
+.service-toggle button.active { background: var(--bark); color: var(--paper); border-color: var(--bark); }
+.service-toggle button .label {
+  display: block; font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; opacity: 0.7; margin-bottom: 4px;
+}
+.service-toggle button .time { font-size: 16px; font-weight: 600; }
+.service-toggle button.disabled { opacity: 0.4; cursor: not-allowed; }
+
+.times-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 8px;
+}
+.time-slot {
+  padding: 14px 10px;
+  background: var(--paper-deep);
+  border: 1.5px solid transparent;
+  font-family: var(--slab); font-size: 15px;
+  font-weight: 500; color: var(--bark-deep);
+  cursor: pointer; text-align: center;
+  transition: all 0.18s;
+}
+.time-slot:hover:not(.disabled) { border-color: var(--bark); }
+.time-slot.selected { background: var(--bark); color: var(--paper); border-color: var(--bark); font-weight: 700; }
+.time-slot.disabled { opacity: 0.3; cursor: not-allowed; text-decoration: line-through; }
+
+/* Guests */
+.guests-row {
+  display: grid; grid-template-columns: repeat(8, 1fr);
+  gap: 8px; margin-bottom: 16px;
+}
+.guests-row .g {
+  aspect-ratio: 1;
+  background: var(--paper-deep);
+  border: 1.5px solid transparent;
+  display: grid; place-items: center;
+  font-family: var(--slab); font-size: 17px;
+  font-weight: 600; color: var(--bark-deep);
+  cursor: pointer; transition: all 0.18s;
+}
+.guests-row .g:hover { border-color: var(--bark); }
+.guests-row .g.selected { background: var(--bark); color: var(--paper); border-color: var(--bark); }
+
+.bigger {
+  font-family: var(--slab); font-size: 13px;
+  color: var(--cork); padding: 14px 0;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.bigger a { color: var(--bark-deep); text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
+
+/* Form */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.field { display: block; }
+.field label {
+  font-family: var(--slab); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--cork); display: block; margin-bottom: 6px;
+}
+.field input, .field textarea {
+  width: 100%; padding: 14px 16px;
+  background: var(--paper-deep); border: 1.5px solid transparent;
+  font-family: var(--slab); font-size: 15px; color: var(--bark-deep);
+  outline: none; transition: border-color 0.2s;
+}
+.field input:focus, .field textarea:focus { border-color: var(--bark); }
+.field textarea { resize: vertical; min-height: 96px; font-family: var(--slab); }
+
+.cta-row {
+  display: flex; gap: 14px; align-items: center; margin-top: 32px; flex-wrap: wrap;
+}
+.cta-row .secondary {
+  font-family: var(--slab); font-size: 12px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--cork); cursor: pointer; background: none; border: none;
+  padding: 10px 0;
+}
+.cta-row .secondary:hover { color: var(--bark); }
+
+/* Summary aside */
+.summary {
+  background: var(--bark-deep);
+  color: var(--paper);
+  padding: 40px 36px;
+  position: sticky; top: 100px;
+}
+.summary h3 {
+  font-family: var(--slab); font-size: 11px;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.summary .big {
+  font-family: var(--slab);
+  font-size: 30px; font-weight: 700;
+  text-transform: uppercase; line-height: 1.1;
+  margin-bottom: 6px;
+}
+.summary .signature {
+  font-family: var(--script); font-size: 28px;
+  color: var(--gold); line-height: 1; margin-bottom: 28px;
+  display: block;
+}
+.summary-row {
+  padding: 14px 0;
+  border-top: 1px solid var(--rule-light);
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 16px; align-items: baseline;
+}
+.summary-row:last-child { border-bottom: 1px solid var(--rule-light); }
+.summary-row .k {
+  font-family: var(--slab); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--paper-soft); opacity: 0.7;
+}
+.summary-row .v {
+  font-family: var(--slab); font-size: 15px;
+  color: var(--paper); font-weight: 500; text-align: right;
+}
+.summary-row .v.empty { color: var(--paper-soft); opacity: 0.4; font-style: italic; font-weight: 400; }
+.summary .note {
+  margin-top: 24px; font-family: var(--slab); font-weight: 300;
+  font-size: 13px; color: var(--paper-soft); line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* Confirmation */
+.confirm-wrap {
+  text-align: center; padding: 80px 0;
+  max-width: 620px; margin: 0 auto;
+}
+.confirm-icon {
+  width: 90px; height: 90px;
+  border: 2px solid var(--moss);
+  display: grid; place-items: center;
+  margin: 0 auto 32px;
+  color: var(--moss); font-size: 44px;
+}
+.confirm-wrap h2 {
+  font-family: var(--slab); font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700; text-transform: uppercase;
+  color: var(--bark); line-height: 1.05; margin-bottom: 8px;
+}
+.confirm-wrap .signature {
+  font-family: var(--script); font-size: clamp(28px, 3.4vw, 44px);
+  color: var(--bark); display: block; margin-bottom: 28px;
+}
+.confirm-wrap p {
+  font-family: var(--slab); font-weight: 300;
+  font-size: 17px; color: var(--ink); opacity: 0.8;
+  line-height: 1.65; margin-bottom: 24px;
+}
+.confirm-card {
+  background: var(--paper-deep); padding: 36px;
+  margin: 36px auto 24px; max-width: 460px;
+  text-align: left;
+  border-left: 4px solid var(--gold);
+}
+.confirm-card .row {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 18px; padding: 12px 0;
+  border-top: 1px dashed var(--rule);
+}
+.confirm-card .row:first-child { border-top: none; padding-top: 0; }
+.confirm-card .k {
+  font-family: var(--slab); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--cork); padding-top: 4px; min-width: 90px;
+}
+.confirm-card .v {
+  font-family: var(--slab); font-size: 16px; font-weight: 600;
+  color: var(--bark-deep);
+}
+
+@media (max-width: 1000px) {
+  .reserva-grid { grid-template-columns: 1fr; gap: 40px; }
+  .summary { position: static; }
+}
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+  .guests-row { grid-template-columns: repeat(4, 1fr); }
+  .steps { overflow-x: auto; }
+  .step { padding: 14px 14px 16px; white-space: nowrap; }
+}
+</style>
+</head>
+<body>
+<div id="header-mount"></div>
+
+<section class="page-hero res" data-screen-label="Reservar hero">
+  <div class="container">
+    <div class="inner">
+      <div class="eyebrow" style="color: var(--gold);">— Reservar mesa —</div>
+      <h1>Reserva</h1>
+      <span class="signature">tu mesa</span>
+      <p>Elige día, turno y número de comensales. Te confirmamos por teléfono o por mensaje.</p>
+    </div>
+  </div>
+</section>
+
+<div class="draft-notice">Borrador · Sistema de reservas — demostración visual</div>
+
+<section class="reserva-section" data-screen-label="Reservar form">
+  <div class="container">
+    <div id="reservaApp"></div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="partials.js"></script>
+<script>
+  RussesPage.renderHeader('reservar', false);
+  RussesPage.renderFooter();
+</script>
+<script type="text/babel" src="reserva.jsx"></script>
+</body>
+</html>

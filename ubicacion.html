@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ubicación · Russes Gastrobar | Aracena</title>
+<meta name="description" content="C. Noria, 1, 21200 Aracena, Huelva. Cómo llegar, horarios y contacto de Russes Gastrobar." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&family=Allura&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.page-hero.ub::before { background-image: url('images/interior-bar.png'); }
+
+.ubic {
+  padding: 100px 0;
+  background: var(--paper);
+}
+.ubic-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+.map-wrap {
+  position: relative;
+  aspect-ratio: 4/5;
+  border: 1.5px solid var(--bark);
+  background: var(--paper-deep);
+  overflow: hidden;
+}
+.map-wrap iframe {
+  width: 100%; height: 100%; border: 0; display: block;
+  filter: sepia(0.15) contrast(0.95);
+}
+
+.info-block { padding: 8px 0; }
+.info-block .eyebrow { margin-bottom: 18px; }
+.info-block h2 {
+  font-family: var(--slab);
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 700; line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--bark);
+  margin-bottom: 28px;
+}
+.info-row {
+  padding: 22px 0;
+  border-top: 1.5px solid var(--rule);
+  display: grid; grid-template-columns: 110px 1fr;
+  gap: 24px; align-items: start;
+}
+.info-row:last-child { border-bottom: 1.5px solid var(--rule); }
+.info-row .label {
+  font-family: var(--slab); font-size: 11px;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--cork); padding-top: 4px;
+}
+.info-row .value {
+  font-family: var(--slab); font-weight: 400;
+  font-size: 17px; color: var(--bark-deep);
+  line-height: 1.6;
+}
+.info-row .value strong {
+  display: block; font-weight: 700; font-size: 19px;
+  color: var(--bark); margin-bottom: 2px;
+}
+.info-row .value a { color: var(--bark-deep); text-decoration: underline; text-underline-offset: 4px; }
+.info-row .value a:hover { color: var(--moss); }
+
+.ubic-cta {
+  display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap;
+}
+
+.horario-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0 32px;
+}
+.horario-row {
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--rule);
+  display: grid; grid-template-columns: 90px 1fr;
+  align-items: baseline; gap: 14px;
+}
+.horario-row.today {
+  background: linear-gradient(90deg, rgba(216,168,90,0.18), transparent);
+  padding-left: 12px;
+  margin: 0 -12px; padding-right: 12px;
+}
+.horario-row .day {
+  font-family: var(--slab); font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--cork);
+}
+.horario-row.today .day { color: var(--bark-deep); font-weight: 700; }
+.horario-row .h {
+  font-family: var(--slab); font-size: 15px;
+  color: var(--bark-deep); font-weight: 500;
+}
+.horario-row.closed .h { opacity: 0.5; font-style: italic; }
+
+.transport {
+  padding: 100px 0;
+  background: var(--bark-deep); color: var(--paper);
+}
+.transport-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.transport-card {
+  padding: 0 36px;
+  border-right: 1px solid var(--rule-light);
+}
+.transport-card:last-child { border-right: none; }
+.transport-card .num {
+  font-family: var(--slab); font-size: 11px;
+  letter-spacing: 0.3em; color: var(--gold);
+  margin-bottom: 18px; display: block;
+}
+.transport-card h3 {
+  font-family: var(--slab); font-size: 24px;
+  font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.04em; line-height: 1.1;
+  margin-bottom: 14px;
+}
+.transport-card p {
+  font-family: var(--slab); font-weight: 300;
+  font-size: 15px; color: var(--paper-soft);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .ubic-grid { grid-template-columns: 1fr; gap: 40px; }
+  .horario-grid { grid-template-columns: 1fr; }
+  .transport-grid { grid-template-columns: 1fr; gap: 32px; }
+  .transport-card { padding: 28px 0; border-right: none; border-bottom: 1px solid var(--rule-light); }
+  .transport-card:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+<div id="header-mount"></div>
+
+<section class="page-hero ub" data-screen-label="Ubicacion hero">
+  <div class="container">
+    <div class="inner">
+      <div class="eyebrow" style="color: var(--gold);">— Cómo llegar —</div>
+      <h1>Ubicación</h1>
+      <span class="signature">C. Noria, 1</span>
+      <p>En el corazón de Aracena, a un paso del centro histórico y de la Gruta de las Maravillas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ubic" data-screen-label="Ubicacion datos">
+  <div class="container">
+    <div class="ubic-grid">
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://www.google.com/maps?q=Russes+Gastrobar,+C.+Noria,+1,+21200+Aracena,+Huelva&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa de Russes Gastrobar en Aracena"></iframe>
+      </div>
+
+      <div class="info-block reveal">
+        <div class="eyebrow">— Visítanos —</div>
+        <h2>Encontrarnos</h2>
+
+        <div class="info-row">
+          <span class="label">Dirección</span>
+          <div class="value">
+            <strong>C. Noria, 1</strong>
+            21200 Aracena · Huelva
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="label">Teléfono</span>
+          <div class="value">
+            <strong><a href="tel:+34694497322">694 49 73 22</a></strong>
+            Reservas, consultas y para llevar.
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="label">Servicios</span>
+          <div class="value">
+            Comer en el local · Para llevar
+            <span style="display:block; opacity: 0.6; font-size: 14px; margin-top: 4px;">(No disponible a domicilio)</span>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="label">Precio medio</span>
+          <div class="value">20 — 30 € por persona</div>
+        </div>
+
+        <div class="ubic-cta">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Russes+Gastrobar+Aracena" target="_blank" rel="noopener" class="btn">Cómo llegar</a>
+          <a href="tel:+34694497322" class="btn outline">Llamar 694 49 73 22</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 96px;">
+      <div class="eyebrow">— Horario —</div>
+      <h2 style="font-family: var(--slab); font-size: clamp(36px, 4.5vw, 56px); font-weight: 700; line-height: 1.05; text-transform: uppercase; color: var(--bark); margin: 18px 0 36px;">Cuándo abrimos</h2>
+      <div class="horario-grid" id="horarioGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="transport dark" data-screen-label="Como llegar">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 56px;">
+      <div class="ornament"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+      <h2 style="font-family: var(--slab); font-size: clamp(32px, 4vw, 48px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em;">Llegar a Aracena</h2>
+    </div>
+    <div class="transport-grid">
+      <div class="transport-card reveal">
+        <span class="num">— 01 · Coche —</span>
+        <h3>Desde Sevilla</h3>
+        <p>1 h 20 min por la N-433. Aparcamiento gratuito en las calles cercanas y zona azul a 200 m.</p>
+      </div>
+      <div class="transport-card reveal">
+        <span class="num">— 02 · Coche —</span>
+        <h3>Desde Huelva</h3>
+        <p>1 h 30 min por la A-49 y la N-435. Llegada por el centro histórico de Aracena.</p>
+      </div>
+      <div class="transport-card reveal">
+        <span class="num">— 03 · A pie —</span>
+        <h3>Centro histórico</h3>
+        <p>A 5 minutos andando de la Gruta de las Maravillas y de la Plaza Alta. Ideal después de la visita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="partials.js"></script>
+<script>
+  RussesPage.renderHeader('ubicacion', false);
+  RussesPage.renderFooter();
+  RussesPage.setupReveal();
+
+  // Schedule
+  const dias = [
+    { name: 'Lunes', h: '13:00 – 16:30   ·   20:30 – 24:00', closed: false, idx: 1 },
+    { name: 'Martes', h: '13:00 – 16:00   ·   20:30 – 24:00', closed: false, idx: 2 },
+    { name: 'Miércoles', h: '13:00 – 16:00   ·   20:30 – 24:00', closed: false, idx: 3 },
+    { name: 'Jueves', h: '13:00 – 16:00   ·   20:30 – 24:00', closed: false, idx: 4 },
+    { name: 'Viernes', h: '13:00 – 16:00   ·   20:30 – 24:00', closed: false, idx: 5 },
+    { name: 'Sábado', h: '13:00 – 16:30   ·   20:30 – 24:00', closed: false, idx: 6 },
+    { name: 'Domingo', h: 'Cerrado', closed: true, idx: 0 }
+  ];
+  const today = new Date().getDay();
+  document.getElementById('horarioGrid').innerHTML = dias.map(d => `
+    <div class="horario-row ${d.closed ? 'closed' : ''} ${d.idx === today ? 'today' : ''}">
+      <span class="day">${d.name}${d.idx === today ? ' · hoy' : ''}</span>
+      <span class="h">${d.h}</span>
+    </div>
+  `).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Galería · Russes Gastrobar | Aracena</title>
+<meta name="description" content="Fotos del local, comida y ambiente de Russes Gastrobar en Aracena, Huelva." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&family=Allura&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.page-hero.gal::before { background-image: url('images/mesa-larga.png'); }
+
+.gallery {
+  padding: 100px 0;
+  background: var(--paper);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  grid-auto-rows: 180px;
+}
+.gallery-grid figure {
+  position: relative; overflow: hidden;
+  background: var(--paper-deep); cursor: pointer;
+}
+.gallery-grid figure img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.gallery-grid figure:hover img { transform: scale(1.06); }
+.gallery-grid figure::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(46,31,18,0.5) 100%);
+  opacity: 0; transition: opacity 0.35s;
+}
+.gallery-grid figure:hover::after { opacity: 1; }
+.gallery-grid figure figcaption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 16px 18px; color: var(--paper); z-index: 2;
+  font-family: var(--slab); font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  transform: translateY(10px); opacity: 0;
+  transition: transform 0.35s, opacity 0.35s;
+}
+.gallery-grid figure:hover figcaption { transform: translateY(0); opacity: 1; }
+
+/* Mosaic spans */
+.s-2x2 { grid-column: span 6; grid-row: span 2; }
+.s-1x2 { grid-column: span 4; grid-row: span 2; }
+.s-2x1 { grid-column: span 6; grid-row: span 1; }
+.s-1x1 { grid-column: span 4; grid-row: span 1; }
+.s-3x1 { grid-column: span 8; grid-row: span 1; }
+.s-3x2 { grid-column: span 8; grid-row: span 2; }
+
+/* tile-quote */
+.gallery-grid figure.quote {
+  background: var(--bark-deep);
+  display: grid; place-items: center;
+  padding: 32px; text-align: center;
+}
+.gallery-grid figure.quote::after { display: none; }
+.gallery-grid figure.quote .q {
+  font-family: var(--script);
+  font-size: clamp(24px, 2.4vw, 36px);
+  color: var(--gold); line-height: 1.3;
+}
+.gallery-grid figure.quote .q small {
+  display: block; margin-top: 14px;
+  font-family: var(--slab); font-size: 10px;
+  letter-spacing: 0.3em; color: var(--paper-soft);
+  text-transform: uppercase;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(28,18,9,0.95);
+  display: none; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 92vw; max-height: 88vh;
+  object-fit: contain; box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.lightbox .close {
+  position: absolute; top: 24px; right: 24px;
+  background: transparent; border: 2px solid var(--paper);
+  color: var(--paper); width: 48px; height: 48px;
+  font-size: 24px; cursor: pointer; font-family: var(--slab);
+}
+
+@media (max-width: 900px) {
+  .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 140px; }
+  .s-2x2, .s-3x2 { grid-column: span 6; grid-row: span 2; }
+  .s-1x2 { grid-column: span 3; grid-row: span 2; }
+  .s-2x1, .s-3x1 { grid-column: span 6; grid-row: span 1; }
+  .s-1x1 { grid-column: span 3; grid-row: span 1; }
+}
+</style>
+</head>
+<body>
+<div id="header-mount"></div>
+
+<section class="page-hero gal" data-screen-label="Galeria hero">
+  <div class="container">
+    <div class="inner">
+      <div class="eyebrow" style="color: var(--gold);">— La casa —</div>
+      <h1>Galería</h1>
+      <span class="signature">Russes</span>
+      <p>El local, la cocina y el equipo. Pequeñas estampas de un día cualquiera en Russes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" data-screen-label="Galeria mosaico">
+  <div class="container">
+    <div class="gallery-grid">
+      <figure class="s-2x2 reveal" data-src="images/interior-bar.png"><img src="images/interior-bar.png" alt="Bodega y barra del local con vinos locales" loading="lazy"/><figcaption>La bodega — Vinos de la Sierra</figcaption></figure>
+      <figure class="s-1x2 reveal" data-src="images/team-camarero.png"><img src="images/team-camarero.png" alt="Camarero sirviendo copas en Russes" loading="lazy"/><figcaption>Servicio de sala</figcaption></figure>
+      <figure class="s-1x1 reveal" data-src="images/patatas-bravas.png"><img src="images/patatas-bravas.png" alt="Patatas bravas con espuma de alioli" loading="lazy"/><figcaption>Patatas bravas… bravas</figcaption></figure>
+      <figure class="s-1x1 reveal" data-src="images/oreja-chili.png"><img src="images/oreja-chili.png" alt="Cartucho de oreja frita con chili dulce" loading="lazy"/><figcaption>Cartucho de oreja</figcaption></figure>
+      <figure class="s-3x2 reveal" data-src="images/mesa-larga.png"><img src="images/mesa-larga.png" alt="Mesa larga preparada para celebración" loading="lazy"/><figcaption>Mesa larga · Celebraciones</figcaption></figure>
+      <figure class="s-1x1 reveal" data-src="images/canelon.png"><img src="images/canelon.png" alt="Canelón con bechamel gratinado" loading="lazy"/><figcaption>Canelón ibérico</figcaption></figure>
+      <figure class="s-1x1 reveal" data-src="images/dumplings.png"><img src="images/dumplings.png" alt="Gyozas de ibérico con salsa de chili dulce" loading="lazy"/><figcaption>Gyozas de ibérico</figcaption></figure>
+      <figure class="s-1x2 reveal" data-src="images/brindis.png"><img src="images/brindis.png" alt="Brindis en sala de Russes Gastrobar" loading="lazy"/><figcaption>Brindis · Mesa larga</figcaption></figure>
+      <figure class="s-1x1 reveal" data-src="images/postre-tomate.png"><img src="images/postre-tomate.png" alt="Postre Tomate, cremoso de queso y frambuesa" loading="lazy"/><figcaption>Tomate de postre</figcaption></figure>
+      <figure class="s-2x1 reveal" data-src="images/equipo.png"><img src="images/equipo.png" alt="Equipo de Russes Gastrobar al completo" loading="lazy"/><figcaption>Nuestro equipo</figcaption></figure>
+      <figure class="s-1x1 quote reveal"><div class="q">Lo mejor de Aracena<small>Embutidos · Quesos · Setas</small></div></figure>
+      <figure class="s-1x1 reveal" data-src="images/interior-mesa.png"><img src="images/interior-mesa.png" alt="Mural de setas de la Sierra" loading="lazy"/><figcaption>Setas de la Sierra</figcaption></figure>
+      <figure class="s-2x1 reveal" data-src="images/bodega-gracias.png"><img src="images/bodega-gracias.png" alt="Bodega iluminada con letras GRACIAS" loading="lazy"/><figcaption>Gracias · Aniversario</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" id="lightboxClose" aria-label="Cerrar">×</button>
+  <img id="lightboxImg" alt="" />
+</div>
+
+<div id="footer-mount"></div>
+<script src="partials.js"></script>
+<script>
+  RussesPage.renderHeader('galeria', false);
+  RussesPage.renderFooter();
+  RussesPage.setupReveal();
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('.gallery-grid figure[data-src]').forEach(fig => {
+    fig.addEventListener('click', () => {
+      lightboxImg.src = fig.dataset.src;
+      lightbox.classList.add('open');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+</script>
+</body>
+</html>
