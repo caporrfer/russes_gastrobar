@@ -317,6 +317,15 @@
     line-height: 1.4;
   }
   .reserva-section { padding: 56px 0; }
+  .step-title {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .step-sub {
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 20px;
+  }
   .form-row { grid-template-columns: 1fr; }
   .guests-row { grid-template-columns: repeat(4, 1fr); }
   .steps {
@@ -338,17 +347,38 @@
     line-height: 1.25;
   }
   .step .num { width: 24px; height: 24px; }
-  .cal-head { gap: 12px; }
+  .cal-head {
+    gap: 8px;
+    max-width: 300px;
+    margin: 0 auto 8px;
+  }
   .cal-month {
     min-width: 0;
-    font-size: 15px;
+    font-size: 13px;
     text-align: center;
     letter-spacing: 0.02em;
   }
-  .cal-grid { gap: 4px; }
+  .cal-nav {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .cal-grid {
+    max-width: 300px;
+    margin: 0 auto;
+    gap: 2px;
+  }
   .cal-dow {
-    font-size: 9px;
-    letter-spacing: 0.04em;
+    font-size: 8px;
+    letter-spacing: 0;
+    padding: 2px 0;
+  }
+  .cal-day {
+    aspect-ratio: auto;
+    min-height: 0;
+    height: 31px;
+    font-size: 13px;
+    border-width: 1px;
   }
   .service-toggle {
     display: grid;
