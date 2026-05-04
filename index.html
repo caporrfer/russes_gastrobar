@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Russes Gastrobar | Restaurante en Aracena, Huelva</title>
+<meta name="description" content="Russes Gastrobar en Aracena, Huelva. Cocina elaborada, carta variada, platos originales y ambiente acogedor. Visítanos en C. Noria, 1 o llama al 694 49 73 22." />
+<meta name="keywords" content="Russes Gastrobar, restaurante en Aracena, gastrobar en Aracena, comer en Aracena, restaurante Huelva, tapas Aracena, cocina elaborada Aracena, Russes Aracena" />
+<meta name="author" content="Russes Gastrobar" />
+<meta name="geo.region" content="ES-H" />
+<meta name="geo.placename" content="Aracena, Huelva" />
+<meta name="geo.position" content="37.8920;-6.5634" />
+<meta name="ICBM" content="37.8920, -6.5634" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Russes Gastrobar | Restaurante en Aracena, Huelva" />
+<meta property="og:description" content="Cocina elaborada, carta variada y ambiente acogedor en el corazón de Aracena." />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:locale" content="es_ES" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<!-- Schema.org Restaurant -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Russes Gastrobar",
+  "image": "",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C. Noria, 1",
+    "addressLocality": "Aracena",
+    "addressRegion": "Huelva",
+    "postalCode": "21200",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 37.8920,
+    "longitude": -6.5634
+  },
+  "telephone": "+34694497322",
+  "servesCuisine": ["Española", "Tapas", "Cocina de autor"],
+  "priceRange": "20€ - 30€",
+  "url": "",
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Russes+Gastrobar+Aracena",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "1065"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "13:00", "closes": "16:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "20:30", "closes": "00:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "13:00", "closes": "16:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "20:30", "closes": "00:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "13:00", "closes": "16:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "20:30", "closes": "00:00" }
+  ],
+  "acceptsReservations": "False"
+}
+</script>
+
+<style>
+  :root {
+    --bg: #14110e;
+    --bg-2: #1a1714;
+    --cream: #f4ede0;
+    --cream-soft: #ebe2d1;
+    --beige: #e8dcc4;
+    --gold: #c9a961;
+    --gold-soft: #b89651;
+    --olive: #5a6240;
+    --ink: #1a1714;
+    --muted: #8a8071;
+    --rule: rgba(244, 237, 224, 0.14);
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === Eyebrow / labels === */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--gold-soft);
+  }
+
+  .display {
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+
+  /* === Header === */
+  header.nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(20, 17, 14, 0.0);
+    backdrop-filter: blur(0px);
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease;
+    padding: 22px 0;
+  }
+  header.nav.scrolled {
+    background: rgba(20, 17, 14, 0.85);
+    backdrop-filter: blur(14px);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  header.nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--cream);
+  }
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--gold);
+    font-style: italic;
+  }
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .brand-text .name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .brand-text .sub {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+
+  nav.links {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+  nav.links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.78;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  nav.links a:hover { opacity: 1; color: var(--gold); }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    border: 1px solid var(--gold);
+    background: var(--gold);
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background: transparent;
+    color: var(--gold);
+  }
+  .btn.ghost {
+    background: transparent;
+    color: var(--cream);
+    border-color: var(--cream);
+  }
+  .btn.ghost:hover {
+    background: var(--cream);
+    color: var(--ink);
+  }
+  .btn.dark {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+  .btn.dark:hover {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  .menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--cream);
+    color: var(--cream);
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-toggle svg { width: 18px; height: 18px; }
+
+  /* === Hero === */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--cream);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/interior-bar.png');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.55) saturate(0.9);
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(20,17,14,0.55) 0%, rgba(20,17,14,0.35) 40%, rgba(20,17,14,0.92) 100%),
+      radial-gradient(ellipse at 30% 50%, rgba(20,17,14,0.0) 0%, rgba(20,17,14,0.6) 80%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 160px 0 80px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(64px, 11vw, 168px);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    margin: 28px 0 32px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .hero p.lede {
+    font-family: var(--serif);
+    font-size: clamp(20px, 1.8vw, 26px);
+    font-style: italic;
+    color: var(--cream-soft);
+    max-width: 540px;
+    line-height: 1.45;
+    font-weight: 400;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    margin-top: 44px;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-left: 1px solid var(--rule);
+    padding-left: 32px;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .hero-meta-item .lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .hero-meta-item .val {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--cream);
+  }
+  .hero-meta-item .val small {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+    margin-left: 6px;
+  }
+
+  .stars {
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--cream);
+    opacity: 0.6;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .scroll-hint .line {
+    width: 1px;
+    height: 36px;
+    background: var(--cream);
+    animation: dropline 2.2s ease-in-out infinite;
+    transform-origin: top;
+  }
+  @keyframes dropline {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* === Sections === */
+  section {
+    padding: 120px 0;
+  }
+  section.dark {
+    background: var(--bg);
+    color: var(--cream);
+  }
+  section.beige {
+    background: var(--beige);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    margin-bottom: 80px;
+    align-items: end;
+  }
+  .section-head h2 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 500;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+  .section-head h2 em {
+    font-style: italic;
+    color: var(--gold-soft);
+    font-weight: 400;
+  }
+  .section-head p {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink);
+    opacity: 0.8;
+  }
+  section.dark .section-head p { color: var(--cream-soft); opacity: 0.85; }
+
+  /* === About === */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-text p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+  .about-text p:first-child::first-letter {
+    font-size: 72px;
+    font-weight: 600;
+    float: left;
+    line-height: 0.85;
+    margin: 4px 12px 0 0;
+    color: var(--gold-soft);
+    font-style: italic;
+  }
+  .rating-card {
+    margin-top: 32px;
+    padding: 28px 32px;
+    border: 1px solid var(--rule);
+    border-color: rgba(26, 23, 20, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: rgba(255,255,255,0.4);
+  }
+  .rating-card .num {
+    font-family: var(--serif);
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .rating-card .stars { font-size: 18px; }
+  .rating-card .desc {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .about-image {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .about-image::after {
+    content: "RUSSES";
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    color: var(--cream);
+    background: rgba(20,17,14,0.7);
+    padding: 8px 14px;
+  }
+
+  /* === Dishes === */
+  .dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .dish {
+    background: var(--bg);
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s;
+    overflow: hidden;
+  }
+  .dish:hover { background: var(--bg-2); }
+
+  .dish-img {
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-2);
+  }
+  .dish-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease, filter 0.4s;
+  }
+  .dish:hover .dish-img img {
+    transform: scale(1.06);
+  }
+  .dish-num {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    z-index: 2;
+    background: rgba(20,17,14,0.6);
+    padding: 4px 8px;
+  }
+
+  .dish-body {
+    padding: 24px;
+  }
+  .dish-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .dish h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .dish p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  .dish .price {
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  .dish.more-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 48px 28px;
+    gap: 18px;
+    min-height: 100%;
+  }
+  .dish.more-tile h3 {
+    font-family: var(--serif);
+    color: var(--cream);
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.2;
+    max-width: 220px;
+    margin: 0;
+  }
+  .dish.more-tile .dish-tag { margin: 0; }
+  .dish.more-tile .btn { font-size: 10px; }
+
+  /* === Carta === */
+  .carta-section {
+    background: var(--bg);
+    color: var(--cream);
+    padding: 120px 0;
+  }
+  .carta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin: 60px 0 48px;
+  }
+  .carta-card {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--bg-2);
+    cursor: pointer;
+    position: relative;
+    border: 1px solid var(--rule);
+    transition: border-color 0.3s;
+  }
+  .carta-card:hover { border-color: var(--gold); }
+  .carta-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .carta-card:hover img { transform: scale(1.04); }
+  .carta-card-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: rgba(20,17,14,0.85);
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .carta-card-label .arrow {
+    color: var(--gold);
+    transition: transform 0.3s;
+  }
+  .carta-card:hover .arrow { transform: translateX(4px); }
+
+  .carta-cta {
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  /* === Gallery === */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 120px;
+    gap: 12px;
+    margin-top: 60px;
+  }
+  .g-item { overflow: hidden; position: relative; background: var(--beige); }
+  .g-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .g-item:hover img { transform: scale(1.05); }
+
+  .g-1 { grid-column: span 5; grid-row: span 3; }
+  .g-2 { grid-column: span 4; grid-row: span 2; }
+  .g-3 { grid-column: span 3; grid-row: span 2; }
+  .g-4 { grid-column: span 3; grid-row: span 2; }
+  .g-5 { grid-column: span 4; grid-row: span 2; }
+  .g-6 { grid-column: span 5; grid-row: span 3; }
+  .g-7 { grid-column: span 4; grid-row: span 2; }
+  .g-8 { grid-column: span 3; grid-row: span 2; }
+
+  /* === Hours === */
+  .hours-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .hours-list {
+    border-top: 1px solid var(--rule);
+  }
+  section.dark .hours-list { border-top-color: var(--rule); }
+  .hours-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
+    align-items: baseline;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+    gap: 24px;
+  }
+  .hours-row .day {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .hours-row .times {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--cream-soft);
+  }
+  .hours-row .badge {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+  .hours-row.closed .day,
+  .hours-row.closed .times { opacity: 0.4; }
+  .hours-row.closed .badge {
+    border-color: var(--muted);
+    color: var(--muted);
+  }
+  .hours-row.today .day { color: var(--gold); }
+
+  .hours-side h3 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+  .hours-side p {
+    color: var(--cream-soft);
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 32px;
+  }
+
+  /* === Location === */
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: stretch;
+  }
+  .map-frame {
+    aspect-ratio: 4/3;
+    width: 100%;
+    border: none;
+    background: var(--beige);
+    filter: grayscale(0.3) contrast(1.05);
+  }
+  .address-card h3 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .address-card .addr {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    opacity: 0.75;
+    margin-bottom: 32px;
+  }
+  .address-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 32px;
+    border-top: 1px solid rgba(26,23,20,0.15);
+  }
+  .address-detail-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(26,23,20,0.15);
+    align-items: baseline;
+    gap: 24px;
+  }
+  .address-detail-row .lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .address-detail-row .val {
+    font-family: var(--serif);
+    font-size: 18px;
+  }
+  .address-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* === Contact === */
+  .contact-section {
+    background: var(--bg);
+    color: var(--cream);
+    text-align: center;
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('images/interior-mesa.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+    filter: blur(2px);
+  }
+  .contact-inner { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; }
+  .contact-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 500;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin: 24px 0 28px;
+  }
+  .contact-section h2 em { font-style: italic; color: var(--gold); font-weight: 400; }
+  .contact-section p {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--cream-soft);
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+  .phone-display {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 500;
+    color: var(--gold);
+    margin: 24px 0 36px;
+    letter-spacing: 0.02em;
+  }
+
+  /* === Footer === */
+  footer {
+    background: #0e0c0a;
+    color: var(--cream);
+    padding: 80px 0 40px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .footer-grid h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-grid p, .footer-grid a {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--cream-soft);
+    line-height: 1.7;
+    display: block;
+  }
+  .footer-grid a:hover { color: var(--gold); }
+
+  .footer-brand .name {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .footer-brand .name em { font-style: italic; color: var(--gold); }
+  .footer-brand .since {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+
+  .footer-bottom {
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-bottom p {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* === Mobile menu drawer === */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 99;
+    display: none;
+    flex-direction: column;
+    padding: 100px 32px 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--cream);
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  /* === Responsive === */
+  @media (max-width: 960px) {
+    nav.links { display: none; }
+    .menu-toggle { display: inline-flex; }
+    header.nav .btn:not(.menu-toggle) { display: none; }
+
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-meta { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 32px; flex-direction: row; flex-wrap: wrap; gap: 32px; }
+    .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .about-image { aspect-ratio: 4/3; }
+    .dishes-grid { grid-template-columns: 1fr 1fr; }
+    .carta-grid { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 100px; }
+    .g-1 { grid-column: span 6; grid-row: span 2; }
+    .g-2, .g-3, .g-4, .g-5, .g-6, .g-7, .g-8 { grid-column: span 3; grid-row: span 2; }
+    .hours-wrap { grid-template-columns: 1fr; gap: 48px; }
+    .location-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    section { padding: 80px 0; }
+    .container { padding: 0 24px; }
+  }
+  @media (max-width: 560px) {
+    .dishes-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hours-row { grid-template-columns: 1fr auto; }
+    .hours-row .badge { grid-column: 2; }
+    .hours-row .times { grid-column: 1 / -1; }
+  }
+
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- =========== HEADER =========== -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="#top" class="brand" aria-label="Russes Gastrobar">
+      <span class="brand-mark">R</span>
+      <span class="brand-text">
+        <span class="name">Russes</span>
+        <span class="sub">Gastrobar · Aracena</span>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="#inicio">Inicio</a>
+      <a href="#carta">Carta</a>
+      <a href="#galeria">Fotos</a>
+      <a href="#horario">Horario</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="tel:+34694497322" class="btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Llamar ahora
+    </a>
+    <button class="menu-toggle" aria-label="Menú" id="menuToggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio">Inicio</a>
+  <a href="#carta">Carta</a>
+  <a href="#galeria">Fotos</a>
+  <a href="#horario">Horario</a>
+  <a href="#ubicacion">Ubicación</a>
+  <a href="#contacto">Contacto</a>
+  <a href="tel:+34694497322" style="color: var(--gold);">Llamar 694 49 73 22</a>
+</div>
+
+<!-- =========== HERO =========== -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Aracena · Huelva · desde 1983</span>
+          <h1>Russes <em>Gastrobar</em></h1>
+          <p class="lede">Cocina elaborada, ambiente acogedor y sabores con personalidad en el corazón de Aracena.</p>
+          <div class="hero-cta">
+            <a href="#carta" class="btn">Ver carta</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Russes+Gastrobar+Aracena" target="_blank" rel="noopener" class="btn ghost">Cómo llegar →</a>
+          </div>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="lbl">Valoración Google</span>
+            <span class="val">4,6 <span class="stars">★★★★★</span> <small>1.065+ reseñas</small></span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="lbl">Reservas</span>
+            <span class="val">694 49 73 22</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Desliza</span>
+    <span class="line"></span>
+  </div>
+</section>
+
+<!-- =========== ABOUT =========== -->
+<section id="sobre" style="background: var(--cream);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Sobre nosotros</span>
+      <h2>Una cocina <em>variada</em> y cuidada, pensada para compartir.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>En Russes Gastrobar disfrutamos de una cocina variada y cuidada, con platos originales, raciones generosas y una propuesta gastronómica pensada para compartir.</p>
+        <p>Un lugar perfecto para comer, cenar o disfrutar de una experiencia diferente en Aracena: producto local, técnica honesta y un ambiente cercano que invita a quedarse.</p>
+
+        <div class="rating-card">
+          <div class="num">4,6</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="desc">Valorado por más de 1.065 clientes en Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-image reveal">
+        <img src="images/interior-mesa.png" alt="Interior de Russes Gastrobar con mural de setas de la Sierra de Aracena" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== DISHES =========== -->
+<section class="dark" id="platos">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Platos destacados</span>
+      <h2>De nuestra <em>cocina</em> a tu mesa.</h2>
+    </div>
+
+    <div class="dishes-grid">
+      <article class="dish reveal">
+        <div class="dish-img">
+          <img src="images/patatas-bravas.png" alt="Patatas bravas con espuma de alioli" />
+        </div>
+        <div class="dish-body">
+          <div class="dish-tag">De nuestras tapas</div>
+          <h3>Patatas Bravas</h3>
+          <p>Bravas con espuma de ali oli, salsa de la casa y cebollino fresco.</p>
+          <div class="price">4,50 €</div>
+        </div>
+      </article>
+
+      <article class="dish reveal">
+        <div class="dish-img">
+          <img src="images/oreja-chili.png" alt="Cartucho de oreja frita con chili dulce" />
+        </div>
+        <div class="dish-body">
+          <div class="dish-tag">De nuestras tapas</div>
+          <h3>Oreja con chili dulce</h3>
+          <p>Cartucho de oreja frita con salsa chili dulce, crujiente y picante.</p>
+          <div class="price">6,00 €</div>
+        </div>
+      </article>
+
+      <article class="dish reveal">
+        <div class="dish-img">
+          <img src="images/canelon.png" alt="Canelón ibérico con bechamel y queso gratinado" />
+        </div>
+        <div class="dish-body">
+          <div class="dish-tag">De nuestras tapas</div>
+          <h3>Canelón</h3>
+          <p>Ibérico o de espinacas con bechamel y queso gratinado al horno.</p>
+          <div class="price">6,00 €</div>
+        </div>
+      </article>
+
+      <article class="dish reveal">
+        <div class="dish-img">
+          <img src="images/dumplings.png" alt="Gyozas ibéricas con salsa de chili dulce" />
+        </div>
+        <div class="dish-body">
+          <div class="dish-tag">Para compartir</div>
+          <h3>Gyozas Ibéricas</h3>
+          <p>Dumplings de ibérico con salsa de chili dulce, fusión bien hecha.</p>
+          <div class="price">16,00 €</div>
+        </div>
+      </article>
+
+      <article class="dish reveal">
+        <div class="dish-img">
+          <img src="images/postre-tomate.png" alt="Tomate, cremoso de queso y frambuesa" />
+        </div>
+        <div class="dish-body">
+          <div class="dish-tag">Nuestros postres</div>
+          <h3>Tomate</h3>
+          <p>Cremoso de queso y frambuesa, presentación que sorprende.</p>
+          <div class="price">6,00 €</div>
+        </div>
+      </article>
+
+      <article class="dish reveal more-tile">
+        <div class="dish-tag">— y mucho más —</div>
+        <h3>Descubre toda nuestra carta</h3>
+        <a href="#carta" class="btn ghost">Ver carta completa →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CARTA =========== -->
+<section class="carta-section" id="carta">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Nuestra carta</span>
+      <h2>Una propuesta variada, pensada para <em>disfrutar</em> y compartir.</h2>
+    </div>
+
+    <p class="reveal" style="font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--cream-soft); max-width: 720px; margin-bottom: 24px;">
+      Consulta nuestra carta y descubre platos de la tierra, tapas de autor, propuestas para compartir, pescados y carnes de la sierra y postres caseros.
+    </p>
+
+    <div class="carta-grid">
+      <a class="carta-card reveal" href="images/carta-1.png" target="_blank" rel="noopener">
+        <img src="images/carta-1.png" alt="Carta página 1 — De la tierra, tapas, algo fresco" />
+        <span class="carta-card-label">
+          <span>Carta · Página 01</span>
+          <span class="arrow">→</span>
+        </span>
+      </a>
+      <a class="carta-card reveal" href="images/carta-2.png" target="_blank" rel="noopener">
+        <img src="images/carta-2.png" alt="Carta página 2 — Para compartir, del mar, carnes" />
+        <span class="carta-card-label">
+          <span>Carta · Página 02</span>
+          <span class="arrow">→</span>
+        </span>
+      </a>
+      <a class="carta-card reveal" href="images/carta-postres.png" target="_blank" rel="noopener">
+        <img src="images/carta-postres.png" alt="Carta de postres" />
+        <span class="carta-card-label">
+          <span>Postres</span>
+          <span class="arrow">→</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="carta-cta">
+      <a href="images/carta-1.png" target="_blank" rel="noopener" class="btn">Ver carta completa →</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========== GALLERY =========== -->
+<section id="galeria" style="background: var(--cream);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Galería</span>
+      <h2>El <em>ambiente</em>, el plato, el detalle.</h2>
+    </div>
+
+    <div class="gallery">
+      <div class="g-item g-1 reveal"><img src="images/interior-bar.png" alt="Bar con bodega de vinos en cajas de madera" /></div>
+      <div class="g-item g-2 reveal"><img src="images/patatas-bravas.png" alt="Patatas bravas" /></div>
+      <div class="g-item g-3 reveal"><img src="images/dumplings.png" alt="Gyozas con salsa" /></div>
+      <div class="g-item g-4 reveal"><img src="images/oreja-chili.png" alt="Oreja frita con chili dulce" /></div>
+      <div class="g-item g-5 reveal"><img src="images/canelon.png" alt="Canelón gratinado" /></div>
+      <div class="g-item g-6 reveal"><img src="images/interior-mesa.png" alt="Mesa con mural de setas" /></div>
+      <div class="g-item g-7 reveal"><img src="images/postre-tomate.png" alt="Postre de tomate, queso y frambuesa" /></div>
+      <div class="g-item g-8 reveal" style="background: var(--bg); display: grid; place-items: center;">
+        <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); text-align: center;">+ Más fotos<br/>en Google</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== HOURS =========== -->
+<section class="dark" id="horario">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Horario</span>
+      <h2>Te esperamos a la hora del <em>almuerzo</em> y de la <em>cena</em>.</h2>
+    </div>
+
+    <div class="hours-wrap">
+      <div class="hours-side reveal">
+        <h3>Servicio<br/>continuo y nocturno</h3>
+        <p>Abrimos a mediodía y volvemos para las cenas todos los días excepto los domingos. Para grupos o consultas, llámanos antes.</p>
+        <a href="tel:+34694497322" class="btn">Llamar 694 49 73 22</a>
+      </div>
+
+      <div class="hours-list reveal" id="hoursList">
+        <div class="hours-row" data-day="1"><span class="day">Lunes</span><span class="times">13:00 — 16:30  ·  20:30 — 24:00</span><span class="badge">Abierto</span></div>
+        <div class="hours-row" data-day="2"><span class="day">Martes</span><span class="times">13:00 — 16:00  ·  20:30 — 24:00</span><span class="badge">Abierto</span></div>
+        <div class="hours-row" data-day="3"><span class="day">Miércoles</span><span class="times">13:00 — 16:00  ·  20:30 — 24:00</span><span class="badge">Abierto</span></div>
+        <div class="hours-row" data-day="4"><span class="day">Jueves</span><span class="times">13:00 — 16:00  ·  20:30 — 24:00</span><span class="badge">Abierto</span></div>
+        <div class="hours-row" data-day="5"><span class="day">Viernes</span><span class="times">13:00 — 16:00  ·  20:30 — 24:00</span><span class="badge">Abierto</span></div>
+        <div class="hours-row" data-day="6"><span class="day">Sábado</span><span class="times">13:00 — 16:30  ·  20:30 — 24:00</span><span class="badge">Abierto</span></div>
+        <div class="hours-row closed" data-day="0"><span class="day">Domingo</span><span class="times">Cerrado</span><span class="badge">Cerrado</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== LOCATION =========== -->
+<section id="ubicacion" class="beige">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ubicación</span>
+      <h2>En el <em>corazón</em> de Aracena.</h2>
+    </div>
+
+    <div class="location-grid">
+      <div class="address-card reveal">
+        <h3>C. Noria, 1</h3>
+        <div class="addr">21200 Aracena, Huelva</div>
+
+        <div class="address-detail">
+          <div class="address-detail-row">
+            <span class="lbl">Localidad</span>
+            <span class="val">Aracena, Huelva</span>
+          </div>
+          <div class="address-detail-row">
+            <span class="lbl">Cómo llegar</span>
+            <span class="val">A pie desde Plaza Alta · 2 min</span>
+          </div>
+          <div class="address-detail-row">
+            <span class="lbl">Servicios</span>
+            <span class="val">Comer aquí · Para llevar</span>
+          </div>
+          <div class="address-detail-row">
+            <span class="lbl">Reservas</span>
+            <span class="val">Por teléfono · 694 49 73 22</span>
+          </div>
+        </div>
+
+        <div class="address-cta">
+          <a href="https://www.google.com/maps/search/?api=1&query=Russes+Gastrobar+C+Noria+1+Aracena+Huelva" target="_blank" rel="noopener" class="btn dark">Cómo llegar →</a>
+          <a href="tel:+34694497322" class="btn ghost" style="border-color: var(--ink); color: var(--ink);">Llamar</a>
+        </div>
+      </div>
+
+      <iframe
+        class="map-frame reveal"
+        title="Mapa de Russes Gastrobar"
+        src="https://www.google.com/maps?q=C.+Noria,+1,+21200+Aracena,+Huelva&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CONTACT =========== -->
+<section class="contact-section" id="contacto">
+  <div class="contact-inner reveal">
+    <span class="eyebrow" style="justify-content: center;">Contacto</span>
+    <h2>Reserva, llévatelo, o <em>ven a vernos</em>.</h2>
+    <p>Para consultas, reservas o pedidos para llevar, llámanos. Estamos al otro lado del teléfono.</p>
+    <a href="tel:+34694497322" class="phone-display">694 49 73 22</a>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="tel:+34694497322" class="btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Llamar ahora
+      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Russes+Gastrobar+Aracena" target="_blank" rel="noopener" class="btn ghost">Cómo llegar →</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FOOTER =========== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="name">Russes <em>Gastrobar</em></div>
+        <div class="since">Aracena · Desde 1983</div>
+        <p style="font-style: italic;">Cocina elaborada, ambiente acogedor y sabores con personalidad en el corazón de Aracena.</p>
+      </div>
+
+      <div>
+        <h4>Visítanos</h4>
+        <p>C. Noria, 1<br/>21200 Aracena<br/>Huelva</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Russes+Gastrobar+Aracena" target="_blank" rel="noopener" style="color: var(--gold); margin-top: 12px;">Abrir en Google Maps →</a>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <a href="tel:+34694497322">694 49 73 22</a>
+        <p style="font-size: 14px; margin-top: 8px; opacity: 0.7;">Llama para reservas y para llevar.</p>
+      </div>
+
+      <div>
+        <h4>Horario</h4>
+        <p style="font-size: 15px;">Lun—Sáb<br/>13:00–16:30 · 20:30–24:00<br/><span style="opacity: 0.6;">Domingo cerrado</span></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© Russes Gastrobar · Todos los derechos reservados</p>
+      <p>Aracena, Huelva · España</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav scroll state
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  const toggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  // Highlight today's hours
+  const today = new Date().getDay();
+  const todayRow = document.querySelector(`.hours-row[data-day="${today}"]`);
+  if (todayRow) {
+    todayRow.classList.add('today');
+    const badge = todayRow.querySelector('.badge');
+    if (badge && !todayRow.classList.contains('closed')) {
+      badge.textContent = 'Hoy abierto';
+      badge.style.background = 'var(--gold)';
+      badge.style.color = 'var(--ink)';
+    }
+  }
+</script>
+
+</body>
+</html>
