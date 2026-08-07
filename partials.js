@@ -80,7 +80,7 @@
           </div>
           <div class="footer-bottom">
             <p>© Russes Aracena · Todos los derechos reservados</p>
-            <p>Aracena · Sierra de Huelva</p>
+            <p><a href="creditos-fotos.html">Créditos fotográficos</a> · Aracena · Sierra de Huelva</p>
           </div>
         </div>
       </footer>

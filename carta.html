@@ -49,10 +49,10 @@
   list-style: none;
 }
 .carta-list li {
-  padding: 18px 0;
+  padding: 12px 0;
   border-bottom: 1px dashed var(--rule);
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 18px; align-items: baseline;
+  display: grid; grid-template-columns: 116px minmax(0, 1fr) auto;
+  gap: 18px; align-items: center;
 }
 .carta-list li:last-child { border-bottom: none; }
 .carta-list .name {
@@ -81,6 +81,27 @@
   display: block; text-transform: uppercase;
   text-align: right; margin-top: 2px;
 }
+.item-photo {
+  position: relative;
+  width: 116px; aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--paper-deep);
+  border: 1px solid rgba(77, 47, 33, 0.12);
+}
+.item-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.45s ease;
+}
+.carta-list li:hover .item-photo img { transform: scale(1.05); }
+.item-photo figcaption {
+  position: absolute; right: 4px; bottom: 4px;
+  padding: 2px 4px;
+  background: rgba(40, 23, 15, 0.72);
+  color: var(--paper);
+  font-family: var(--slab); font-size: 7px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.carta-section.dark .item-photo { border-color: rgba(255,255,255,0.14); }
 
 /* Product photography */
 .category-photo {
@@ -160,6 +181,13 @@
   .category-photo { height: 260px; margin-bottom: 30px; }
   .category-photo figcaption { right: 10px; bottom: 10px; }
 }
+@media (max-width: 520px) {
+  .carta-list li { grid-template-columns: 84px minmax(0, 1fr) auto; gap: 10px; }
+  .item-photo { width: 84px; }
+  .carta-list .name { font-size: 13px; }
+  .carta-list .desc { font-size: 12px; }
+  .carta-list .price { font-size: 14px; }
+}
 </style>
 </head>
 <body>
@@ -177,7 +205,7 @@
 </section>
 
 <!-- DE LA TIERRA -->
-<section class="carta-section reveal" data-screen-label="De la tierra">
+<section class="carta-section reveal" data-screen-label="De la tierra" data-menu="tierra">
   <div class="container">
     <div class="head">
       <h2><span class="num">— 01 —</span>De la tierra</h2>
@@ -196,7 +224,7 @@
 </section>
 
 <!-- FRÍOS -->
-<section class="carta-section alt reveal" data-screen-label="Frios">
+<section class="carta-section alt reveal" data-screen-label="Frios" data-menu="frios">
   <div class="container">
     <div class="head">
       <h2><span class="num">— 02 —</span>Fríos</h2>
@@ -231,7 +259,7 @@
 </section>
 
 <!-- CALIENTES -->
-<section class="carta-section reveal" data-screen-label="Calientes">
+<section class="carta-section reveal" data-screen-label="Calientes" data-menu="calientes">
   <div class="container">
     <div class="head">
       <h2><span class="num">— 03 —</span>Calientes</h2>
@@ -261,7 +289,7 @@
 </section>
 
 <!-- CARNES -->
-<section class="carta-section dark reveal" data-screen-label="Carnes">
+<section class="carta-section dark reveal" data-screen-label="Carnes" data-menu="carnes">
   <div class="container">
     <div class="head">
       <h2><span class="num">— 04 —</span>Nuestras carnes</h2>
@@ -283,7 +311,7 @@
 </section>
 
 <!-- CON LAS MANOS -->
-<section class="carta-section reveal" data-screen-label="Con las manos">
+<section class="carta-section reveal" data-screen-label="Con las manos" data-menu="manos">
   <div class="container">
     <div class="head">
       <h2><span class="num">— 05 —</span>Con las manos</h2>
@@ -307,7 +335,7 @@
 </section>
 
 <!-- POSTRES -->
-<section class="carta-section dark reveal" data-screen-label="Postres">
+<section class="carta-section dark reveal" data-screen-label="Postres" data-menu="postres">
   <div class="container">
     <div class="head">
       <h2><span class="num">— 06 —</span>Postres</h2>
@@ -345,6 +373,28 @@
 <div id="footer-mount"></div>
 <script src="partials.js"></script>
 <script>
+  const MENU_PHOTOS = {
+    tierra: ['jamon-iberico', 'lomito-iberico', 'tabla-quesos'],
+    frios: ['salmorejo', 'gazpacho-verde', 'ensaladilla', 'burrata', 'tomate-antonia', 'ensalada-vietnamita', 'ensalada-frutas', 'milhojas-sandia', 'anchoa-tosta', 'lomo-sardina', 'foie-pato', 'mojama-atun', 'carpaccio-entrecot', 'tartar-salchichon', 'lasana-atun', 'totopos', 'creme-brulee', 'rollitos-thai', 'tartar-salmon'],
+    calientes: ['images/patatas-bravas.png', 'satay-pollo', 'images/oreja-chili.png', 'brocheta-kaffa', 'images/canelon.png', 'albondigas-curry', 'croquetas-puchero', 'coliflor-frita', 'choquito', 'fish-chips', 'alcachofas-jamon', 'images/dumplings.png', 'risotto-negro', 'pad-thai'],
+    carnes: ['costilla-cerdo', 'san-jacobo', 'cochinillo', 'raviolis-toro', 'carnes-ibericas', 'solomillo-ternera'],
+    manos: ['crispy-chicken', 'brioche-salmon', 'burger-buey', 'bao-manitas', 'saam-carrilleras', 'perrito-iberico', 'bikini-pato'],
+    postres: ['nido-postre', 'tiramisu', 'images/postre-tomate.png', 'tocino-cielo', 'limon-postre', 'tres-chocolates', 'chocolatisimo', 'coulant', 'tarta-queso', 'tarta-manzana']
+  };
+
+  document.querySelectorAll('[data-menu]').forEach(section => {
+    const photos = MENU_PHOTOS[section.dataset.menu] || [];
+    section.querySelectorAll('.carta-list li').forEach((item, index) => {
+      const name = item.querySelector('.name').childNodes[0].textContent.trim();
+      const isStock = !photos[index].includes('/');
+      const source = isStock ? `images/menu-stock/menu-${photos[index]}.webp` : photos[index];
+      const photo = document.createElement('figure');
+      photo.className = 'item-photo';
+      photo.innerHTML = `<img src="${source}" alt="${isStock ? 'Imagen de referencia de' : 'Foto de'} ${name}" width="640" height="480" loading="lazy" decoding="async"><figcaption>${isStock ? 'Stock' : 'Russes'}</figcaption>`;
+      item.prepend(photo);
+    });
+  });
+
   RussesPage.renderHeader('carta', false);
   RussesPage.renderFooter();
   RussesPage.setupReveal();
