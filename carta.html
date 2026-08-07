@@ -82,6 +82,33 @@
   text-align: right; margin-top: 2px;
 }
 
+/* Product photography */
+.category-photo {
+  position: relative;
+  height: clamp(260px, 36vw, 440px);
+  margin: 0 0 46px;
+  overflow: hidden;
+  background: var(--paper-deep);
+  border: 1px solid rgba(77, 47, 33, 0.12);
+}
+.category-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.category-photo:hover img { transform: scale(1.025); }
+.category-photo figcaption {
+  position: absolute; right: 16px; bottom: 14px;
+  padding: 7px 10px;
+  background: rgba(40, 23, 15, 0.82);
+  color: var(--paper);
+  font-family: var(--slab); font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  backdrop-filter: blur(5px);
+}
+.category-photo.focus-top img { object-position: center 34%; }
+.carta-section.dark .category-photo { border-color: rgba(255,255,255,0.14); }
+
 /* Section variations */
 .carta-section.alt { background: var(--paper-deep); }
 .carta-section.dark {
@@ -130,6 +157,8 @@
   .carta-list { grid-template-columns: 1fr; gap: 0; }
   .carta-section .head { grid-template-columns: 1fr; gap: 14px; }
   .carta-section .descr { justify-self: start; text-align: left; max-width: none; }
+  .category-photo { height: 260px; margin-bottom: 30px; }
+  .category-photo figcaption { right: 10px; bottom: 10px; }
 }
 </style>
 </head>
@@ -154,6 +183,10 @@
       <h2><span class="num">— 01 —</span>De la tierra</h2>
       <p class="descr">Lo mejor de la dehesa. Ibérico de bellota y quesos artesanos de la zona.</p>
     </div>
+    <figure class="category-photo focus-top">
+      <img src="images/stock-ibericos.webp" alt="Jamón ibérico cortado en finas lonchas" width="1600" height="2400" loading="lazy" decoding="async">
+      <figcaption>Ibéricos · Imagen de referencia</figcaption>
+    </figure>
     <ul class="carta-list">
       <li><div><span class="name">Jamón ibérico de bellota 100×100</span><span class="desc">DOP Jabugo, cortado a cuchillo.</span></div><span class="price">22,00 €</span></li>
       <li><div><span class="name">Lomito ibérico entero</span></div><span class="price">22,00 €</span></li>
@@ -169,6 +202,10 @@
       <h2><span class="num">— 02 —</span>Fríos</h2>
       <p class="descr">Para empezar la mesa. Tapas frescas, ensaladas y el toque viajero de la casa.</p>
     </div>
+    <figure class="category-photo">
+      <img src="images/stock-tapas.webp" alt="Selección de tapas y entrantes para compartir" width="900" height="1200" loading="lazy" decoding="async">
+      <figcaption>Entrantes · Imagen de referencia</figcaption>
+    </figure>
     <ul class="carta-list">
       <li><div><span class="name">Salmorejo tradicional</span></div><span class="price">4,00 €</span></li>
       <li><div><span class="name">Gazpacho verde</span><span class="desc">Manzana y aguacate con tartar de gamba blanca y cilantro.</span></div><span class="price">4,00 €</span></li>
@@ -200,6 +237,10 @@
       <h2><span class="num">— 03 —</span>Calientes</h2>
       <p class="descr">Tapas y raciones de cuchara y sartén. Cocina de temporada con sello propio.</p>
     </div>
+    <figure class="category-photo">
+      <img src="images/patatas-bravas.png" alt="Patatas bravas de Russes Gastrobar" width="809" height="768" loading="lazy" decoding="async">
+      <figcaption>Patatas bravas · Russes</figcaption>
+    </figure>
     <ul class="carta-list">
       <li><div><span class="name">Patatas bravas… bravas</span><span class="desc">Espuma de alioli.</span></div><span class="price">3,00 €</span></li>
       <li><div><span class="name">Satay de pollo</span><span class="desc">Salsa de cacahuete.</span></div><span class="price">5,00 €</span></li>
@@ -226,6 +267,10 @@
       <h2><span class="num">— 04 —</span>Nuestras carnes</h2>
       <p class="descr">Producto ibérico de bellota y carnes a la plancha. Plato fuerte de la casa.</p>
     </div>
+    <figure class="category-photo">
+      <img src="images/stock-carnes.webp" alt="Carne a la plancha acompañada de verduras" width="1600" height="838" loading="lazy" decoding="async">
+      <figcaption>Carnes · Imagen de referencia</figcaption>
+    </figure>
     <ul class="carta-list">
       <li><div><span class="name">Costilla de cerdo</span><span class="desc">Reducción de vino.</span></div><span class="price">14,00 €</span></li>
       <li><div><span class="name">San Jacobo ibérico</span><span class="desc">Queso de cabra de la sierra.</span></div><span class="price">16,00 €</span></li>
@@ -244,6 +289,10 @@
       <h2><span class="num">— 05 —</span>Con las manos</h2>
       <p class="descr">Bocadillos, baos, burgers y perritos. Cuando apetece comer sin cubiertos.</p>
     </div>
+    <figure class="category-photo focus-top">
+      <img src="images/stock-burger.webp" alt="Hamburguesa con queso, tomate y lechuga" width="1600" height="1066" loading="lazy" decoding="async">
+      <figcaption>Burgers · Imagen de referencia</figcaption>
+    </figure>
     <ul class="carta-list">
       <li><div><span class="name">Crispy chicken estilo cajún</span><span class="desc">Repollo agridulce.</span></div><span class="price">6,00 €</span></li>
       <li><div><span class="name">Sándwich de pan brioche</span><span class="desc">Salmón ahumado y salsa tártara.</span></div><span class="price">4,50 €</span></li>
@@ -264,6 +313,10 @@
       <h2><span class="num">— 06 —</span>Postres</h2>
       <p class="descr">Hechos en casa. Para cerrar la mesa.</p>
     </div>
+    <figure class="category-photo">
+      <img src="images/postre-tomate.png" alt="Postre Tomate de Russes Gastrobar" width="749" height="661" loading="lazy" decoding="async">
+      <figcaption>Tomate · Russes</figcaption>
+    </figure>
     <p class="postres-quote">La risa es como el postre, para ella siempre hay hueco</p>
     <ul class="carta-list">
       <li><div><span class="name">Nido</span></div><span class="price">6,00 €</span></li>
