@@ -44,17 +44,23 @@
 }
 
 .carta-list {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 0 80px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px 24px;
   list-style: none;
 }
 .carta-list li {
-  padding: 12px 0;
-  border-bottom: 1px dashed var(--rule);
-  display: grid; grid-template-columns: 116px minmax(0, 1fr) auto;
-  gap: 18px; align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.16);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-content: start;
+  align-items: start;
 }
-.carta-list li:last-child { border-bottom: none; }
+.carta-list li > div {
+  padding: 18px 10px 20px 18px;
+}
 .carta-list .name {
   font-family: var(--slab); font-size: 16px;
   font-weight: 600; color: var(--bark);
@@ -71,6 +77,7 @@
   font-family: var(--slab); font-size: 17px;
   font-weight: 700; color: var(--bark-deep);
   white-space: nowrap;
+  padding: 18px 18px 20px 0;
 }
 .carta-list .price.unit {
   font-size: 13px;
@@ -82,53 +89,18 @@
   text-align: right; margin-top: 2px;
 }
 .item-photo {
-  position: relative;
-  width: 116px; aspect-ratio: 4 / 3;
+  grid-column: 1 / -1;
+  width: 100%; aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--paper-deep);
-  border: 1px solid rgba(77, 47, 33, 0.12);
+  border-bottom: 1px solid var(--rule);
 }
 .item-photo img {
   width: 100%; height: 100%; object-fit: cover;
   transition: transform 0.45s ease;
 }
 .carta-list li:hover .item-photo img { transform: scale(1.05); }
-.item-photo figcaption {
-  position: absolute; right: 4px; bottom: 4px;
-  padding: 2px 4px;
-  background: rgba(40, 23, 15, 0.72);
-  color: var(--paper);
-  font-family: var(--slab); font-size: 7px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-}
-.carta-section.dark .item-photo { border-color: rgba(255,255,255,0.14); }
-
-/* Product photography */
-.category-photo {
-  position: relative;
-  height: clamp(260px, 36vw, 440px);
-  margin: 0 0 46px;
-  overflow: hidden;
-  background: var(--paper-deep);
-  border: 1px solid rgba(77, 47, 33, 0.12);
-}
-.category-photo img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease;
-}
-.category-photo:hover img { transform: scale(1.025); }
-.category-photo figcaption {
-  position: absolute; right: 16px; bottom: 14px;
-  padding: 7px 10px;
-  background: rgba(40, 23, 15, 0.82);
-  color: var(--paper);
-  font-family: var(--slab); font-size: 10px;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  backdrop-filter: blur(5px);
-}
-.category-photo.focus-top img { object-position: center 34%; }
-.carta-section.dark .category-photo { border-color: rgba(255,255,255,0.14); }
+.carta-section.dark .item-photo { border-color: var(--rule-light); }
 
 /* Section variations */
 .carta-section.alt { background: var(--paper-deep); }
@@ -142,7 +114,10 @@
 .carta-section.dark .carta-list .name { color: var(--paper); }
 .carta-section.dark .carta-list .desc { color: var(--paper-soft); }
 .carta-section.dark .carta-list .price { color: var(--gold); }
-.carta-section.dark .carta-list li { border-bottom-color: var(--rule-light); }
+.carta-section.dark .carta-list li {
+  border-color: var(--rule-light);
+  background: rgba(255, 255, 255, 0.035);
+}
 
 /* postres header pull-quote */
 .postres-quote {
@@ -174,19 +149,18 @@
   display: block; opacity: 0.85;
 }
 
+@media (max-width: 960px) {
+  .carta-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 800px) {
-  .carta-list { grid-template-columns: 1fr; gap: 0; }
   .carta-section .head { grid-template-columns: 1fr; gap: 14px; }
   .carta-section .descr { justify-self: start; text-align: left; max-width: none; }
-  .category-photo { height: 260px; margin-bottom: 30px; }
-  .category-photo figcaption { right: 10px; bottom: 10px; }
 }
-@media (max-width: 520px) {
-  .carta-list li { grid-template-columns: 84px minmax(0, 1fr) auto; gap: 10px; }
-  .item-photo { width: 84px; }
-  .carta-list .name { font-size: 13px; }
-  .carta-list .desc { font-size: 12px; }
-  .carta-list .price { font-size: 14px; }
+@media (max-width: 600px) {
+  .carta-list { grid-template-columns: 1fr; gap: 24px; }
+  .carta-list .name { font-size: 15px; }
+  .carta-list .desc { font-size: 13px; }
+  .carta-list .price { font-size: 16px; }
 }
 </style>
 </head>
@@ -211,10 +185,6 @@
       <h2><span class="num">— 01 —</span>De la tierra</h2>
       <p class="descr">Lo mejor de la dehesa. Ibérico de bellota y quesos artesanos de la zona.</p>
     </div>
-    <figure class="category-photo focus-top">
-      <img src="images/stock-ibericos.webp" alt="Jamón ibérico cortado en finas lonchas" width="1600" height="2400" loading="lazy" decoding="async">
-      <figcaption>Ibéricos · Imagen de referencia</figcaption>
-    </figure>
     <ul class="carta-list">
       <li><div><span class="name">Jamón ibérico de bellota 100×100</span><span class="desc">DOP Jabugo, cortado a cuchillo.</span></div><span class="price">22,00 €</span></li>
       <li><div><span class="name">Lomito ibérico entero</span></div><span class="price">22,00 €</span></li>
@@ -230,10 +200,6 @@
       <h2><span class="num">— 02 —</span>Fríos</h2>
       <p class="descr">Para empezar la mesa. Tapas frescas, ensaladas y el toque viajero de la casa.</p>
     </div>
-    <figure class="category-photo">
-      <img src="images/stock-tapas.webp" alt="Selección de tapas y entrantes para compartir" width="900" height="1200" loading="lazy" decoding="async">
-      <figcaption>Entrantes · Imagen de referencia</figcaption>
-    </figure>
     <ul class="carta-list">
       <li><div><span class="name">Salmorejo tradicional</span></div><span class="price">4,00 €</span></li>
       <li><div><span class="name">Gazpacho verde</span><span class="desc">Manzana y aguacate con tartar de gamba blanca y cilantro.</span></div><span class="price">4,00 €</span></li>
@@ -265,10 +231,6 @@
       <h2><span class="num">— 03 —</span>Calientes</h2>
       <p class="descr">Tapas y raciones de cuchara y sartén. Cocina de temporada con sello propio.</p>
     </div>
-    <figure class="category-photo">
-      <img src="images/patatas-bravas.png" alt="Patatas bravas de Russes Gastrobar" width="809" height="768" loading="lazy" decoding="async">
-      <figcaption>Patatas bravas · Russes</figcaption>
-    </figure>
     <ul class="carta-list">
       <li><div><span class="name">Patatas bravas… bravas</span><span class="desc">Espuma de alioli.</span></div><span class="price">3,00 €</span></li>
       <li><div><span class="name">Satay de pollo</span><span class="desc">Salsa de cacahuete.</span></div><span class="price">5,00 €</span></li>
@@ -295,10 +257,6 @@
       <h2><span class="num">— 04 —</span>Nuestras carnes</h2>
       <p class="descr">Producto ibérico de bellota y carnes a la plancha. Plato fuerte de la casa.</p>
     </div>
-    <figure class="category-photo">
-      <img src="images/stock-carnes.webp" alt="Carne a la plancha acompañada de verduras" width="1600" height="838" loading="lazy" decoding="async">
-      <figcaption>Carnes · Imagen de referencia</figcaption>
-    </figure>
     <ul class="carta-list">
       <li><div><span class="name">Costilla de cerdo</span><span class="desc">Reducción de vino.</span></div><span class="price">14,00 €</span></li>
       <li><div><span class="name">San Jacobo ibérico</span><span class="desc">Queso de cabra de la sierra.</span></div><span class="price">16,00 €</span></li>
@@ -317,10 +275,6 @@
       <h2><span class="num">— 05 —</span>Con las manos</h2>
       <p class="descr">Bocadillos, baos, burgers y perritos. Cuando apetece comer sin cubiertos.</p>
     </div>
-    <figure class="category-photo focus-top">
-      <img src="images/stock-burger.webp" alt="Hamburguesa con queso, tomate y lechuga" width="1600" height="1066" loading="lazy" decoding="async">
-      <figcaption>Burgers · Imagen de referencia</figcaption>
-    </figure>
     <ul class="carta-list">
       <li><div><span class="name">Crispy chicken estilo cajún</span><span class="desc">Repollo agridulce.</span></div><span class="price">6,00 €</span></li>
       <li><div><span class="name">Sándwich de pan brioche</span><span class="desc">Salmón ahumado y salsa tártara.</span></div><span class="price">4,50 €</span></li>
@@ -341,10 +295,6 @@
       <h2><span class="num">— 06 —</span>Postres</h2>
       <p class="descr">Hechos en casa. Para cerrar la mesa.</p>
     </div>
-    <figure class="category-photo">
-      <img src="images/postre-tomate.png" alt="Postre Tomate de Russes Gastrobar" width="749" height="661" loading="lazy" decoding="async">
-      <figcaption>Tomate · Russes</figcaption>
-    </figure>
     <p class="postres-quote">La risa es como el postre, para ella siempre hay hueco</p>
     <ul class="carta-list">
       <li><div><span class="name">Nido</span></div><span class="price">6,00 €</span></li>
@@ -374,7 +324,7 @@
 <script src="partials.js"></script>
 <script>
   const MENU_PHOTOS = {
-    tierra: ['jamon-iberico', 'lomito-iberico', 'tabla-quesos'],
+    tierra: ['images/stock-ibericos.webp', 'lomito-iberico', 'tabla-quesos'],
     frios: ['salmorejo', 'gazpacho-verde', 'ensaladilla', 'burrata', 'tomate-antonia', 'ensalada-vietnamita', 'ensalada-frutas', 'milhojas-sandia', 'anchoa-tosta', 'lomo-sardina', 'foie-pato', 'mojama-atun', 'carpaccio-entrecot', 'tartar-salchichon', 'lasana-atun', 'totopos', 'creme-brulee', 'rollitos-thai', 'tartar-salmon'],
     calientes: ['images/patatas-bravas.png', 'satay-pollo', 'images/oreja-chili.png', 'brocheta-kaffa', 'images/canelon.png', 'albondigas-curry', 'croquetas-puchero', 'coliflor-frita', 'choquito', 'fish-chips', 'alcachofas-jamon', 'images/dumplings.png', 'risotto-negro', 'pad-thai'],
     carnes: ['costilla-cerdo', 'san-jacobo', 'cochinillo', 'raviolis-toro', 'carnes-ibericas', 'solomillo-ternera'],
@@ -386,11 +336,10 @@
     const photos = MENU_PHOTOS[section.dataset.menu] || [];
     section.querySelectorAll('.carta-list li').forEach((item, index) => {
       const name = item.querySelector('.name').childNodes[0].textContent.trim();
-      const isStock = !photos[index].includes('/');
-      const source = isStock ? `images/menu-stock/menu-${photos[index]}.webp` : photos[index];
+      const source = photos[index].includes('/') ? photos[index] : `images/menu-stock/menu-${photos[index]}.webp`;
       const photo = document.createElement('figure');
       photo.className = 'item-photo';
-      photo.innerHTML = `<img src="${source}" alt="${isStock ? 'Imagen de referencia de' : 'Foto de'} ${name}" width="640" height="480" loading="lazy" decoding="async"><figcaption>${isStock ? 'Stock' : 'Russes'}</figcaption>`;
+      photo.innerHTML = `<img src="${source}" alt="${name}" width="640" height="480" loading="lazy" decoding="async">`;
       item.prepend(photo);
     });
   });
