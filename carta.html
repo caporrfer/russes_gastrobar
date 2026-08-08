@@ -6,6 +6,7 @@
 <title>Carta · Russes Gastrobar | Aracena</title>
 <meta name="description" content="Carta de Russes Gastrobar: tapas, raciones, carnes, pescados y postres. Cocina de la Sierra de Aracena." />
 <link rel="preload" as="image" href="images/interior-bar.webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/menu-stock/menu-salmorejo.webp" media="(max-width: 600px)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&family=Allura&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -150,6 +151,8 @@
   display: block; opacity: 0.85;
 }
 
+.carta-tabs { display: none; }
+
 @media (max-width: 960px) {
   .carta-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -158,6 +161,57 @@
   .carta-section .descr { justify-self: start; text-align: left; max-width: none; }
 }
 @media (max-width: 600px) {
+  .carta-tabs {
+    display: block;
+    position: sticky;
+    top: 84px;
+    z-index: 20;
+    overflow-x: auto;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: 0 8px 20px rgba(46, 31, 18, 0.08);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .carta-tabs::-webkit-scrollbar { display: none; }
+  .carta-tabs-track {
+    display: flex;
+    width: max-content;
+    min-width: 100%;
+    padding: 0 14px;
+  }
+  .carta-tab {
+    position: relative;
+    flex: none;
+    padding: 15px 13px 14px;
+    border: 0;
+    background: transparent;
+    color: var(--cork);
+    font-family: var(--slab);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .carta-tab::after {
+    content: '';
+    position: absolute;
+    right: 13px;
+    bottom: -1px;
+    left: 13px;
+    height: 2px;
+    background: var(--bark);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+  }
+  .carta-tab.active { color: var(--bark-deep); }
+  .carta-tab.active::after { transform: scaleX(1); }
+  body.mobile-carta-tabs .carta-section[data-menu] { display: none; }
+  body.mobile-carta-tabs .carta-section[data-menu].mobile-active {
+    display: block;
+    padding: 58px 0 72px;
+  }
   .carta-list { grid-template-columns: 1fr; gap: 24px; }
   .carta-list .name { font-size: 15px; }
   .carta-list .desc { font-size: 13px; }
@@ -179,8 +233,19 @@
   </div>
 </section>
 
+<nav class="carta-tabs" aria-label="Categorías de la carta">
+  <div class="carta-tabs-track" role="tablist">
+    <button class="carta-tab active" type="button" role="tab" aria-selected="true" data-menu-tab="tierra">De la tierra</button>
+    <button class="carta-tab" type="button" role="tab" aria-selected="false" data-menu-tab="frios">Fríos</button>
+    <button class="carta-tab" type="button" role="tab" aria-selected="false" data-menu-tab="calientes">Calientes</button>
+    <button class="carta-tab" type="button" role="tab" aria-selected="false" data-menu-tab="carnes">Carnes</button>
+    <button class="carta-tab" type="button" role="tab" aria-selected="false" data-menu-tab="manos">Con las manos</button>
+    <button class="carta-tab" type="button" role="tab" aria-selected="false" data-menu-tab="postres">Postres</button>
+  </div>
+</nav>
+
 <!-- DE LA TIERRA -->
-<section class="carta-section reveal" data-screen-label="De la tierra" data-menu="tierra">
+<section class="carta-section reveal mobile-active" data-screen-label="De la tierra" data-menu="tierra">
   <div class="container">
     <div class="head">
       <h2><span class="num">— 01 —</span>De la tierra</h2>
@@ -333,7 +398,38 @@
     postres: ['nido-postre', 'tiramisu', 'images/postre-tomate.webp', 'tocino-cielo', 'limon-postre', 'tres-chocolates', 'chocolatisimo', 'coulant', 'tarta-queso', 'tarta-manzana']
   };
 
-  document.querySelectorAll('[data-menu]').forEach(section => {
+  const menuSections = Array.from(document.querySelectorAll('[data-menu]'));
+  const menuTabs = Array.from(document.querySelectorAll('[data-menu-tab]'));
+  const mobileCarta = window.matchMedia('(max-width: 600px)');
+  let activeMenu = MENU_PHOTOS[location.hash.slice(1)] ? location.hash.slice(1) : 'tierra';
+
+  function activateMenu(menu, scrollTab = false) {
+    activeMenu = MENU_PHOTOS[menu] ? menu : 'tierra';
+    menuSections.forEach((section) => {
+      section.classList.toggle('mobile-active', section.dataset.menu === activeMenu);
+    });
+    menuTabs.forEach((tab) => {
+      const active = tab.dataset.menuTab === activeMenu;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', String(active));
+      if (active && scrollTab) tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    });
+
+    const activeSection = menuSections.find((section) => section.dataset.menu === activeMenu);
+    if (activeSection) {
+      activeSection.querySelectorAll('img').forEach((image, index) => {
+        if (index < 4) image.loading = 'eager';
+        if (index === 0) image.fetchPriority = 'high';
+      });
+    }
+  }
+
+  function syncMobileCarta() {
+    document.body.classList.toggle('mobile-carta-tabs', mobileCarta.matches);
+    if (mobileCarta.matches) activateMenu(activeMenu);
+  }
+
+  menuSections.forEach(section => {
     const photos = MENU_PHOTOS[section.dataset.menu] || [];
     section.querySelectorAll('.carta-list li').forEach((item, index) => {
       const name = item.querySelector('.name').childNodes[0].textContent.trim();
@@ -344,6 +440,16 @@
       item.prepend(photo);
     });
   });
+
+  menuTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      activateMenu(tab.dataset.menuTab, true);
+      history.replaceState(null, '', `#${tab.dataset.menuTab}`);
+    });
+  });
+  if (mobileCarta.addEventListener) mobileCarta.addEventListener('change', syncMobileCarta);
+  else mobileCarta.addListener(syncMobileCarta);
+  syncMobileCarta();
 
   RussesPage.renderHeader('carta', false);
   RussesPage.renderFooter();

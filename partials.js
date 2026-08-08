@@ -97,7 +97,10 @@
     // A tall block can never reach a useful intersection ratio on a small
     // screen. Keep those blocks visible instead of hiding a whole menu section.
     const observedElements = Array.from(elements).filter(
-      (el) => el.getBoundingClientRect().height <= window.innerHeight - 24
+      (el) => {
+        const height = el.getBoundingClientRect().height;
+        return height > 0 && height <= window.innerHeight - 24;
+      }
     );
     observedElements.forEach((el) => el.classList.add('reveal-pending'));
     const observer = new IntersectionObserver((entries) => {
