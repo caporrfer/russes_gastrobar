@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Carta · Russes Gastrobar | Aracena</title>
 <meta name="description" content="Carta de Russes Gastrobar: tapas, raciones, carnes, pescados y postres. Cocina de la Sierra de Aracena." />
+<link rel="preload" as="image" href="images/interior-bar.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&family=Allura&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-.page-hero.carta::before { background-image: url('images/interior-bar.png'); }
+.page-hero.carta::before { background-image: url('images/interior-bar.webp'); }
 
 /* === Carta layout === */
 .carta-section { padding: 90px 0; background: var(--paper); }
@@ -324,12 +325,12 @@
 <script src="partials.js"></script>
 <script>
   const MENU_PHOTOS = {
-    tierra: ['images/stock-ibericos.webp', 'lomito-iberico', 'tabla-quesos'],
+    tierra: ['images/menu-ibericos.webp', 'lomito-iberico', 'tabla-quesos'],
     frios: ['salmorejo', 'gazpacho-verde', 'ensaladilla', 'burrata', 'tomate-antonia', 'ensalada-vietnamita', 'ensalada-frutas', 'milhojas-sandia', 'anchoa-tosta', 'lomo-sardina', 'foie-pato', 'mojama-atun', 'carpaccio-entrecot', 'tartar-salchichon', 'lasana-atun', 'totopos', 'creme-brulee', 'rollitos-thai', 'tartar-salmon'],
-    calientes: ['images/patatas-bravas.png', 'satay-pollo', 'images/oreja-chili.png', 'brocheta-kaffa', 'images/canelon.png', 'albondigas-curry', 'croquetas-puchero', 'coliflor-frita', 'choquito', 'fish-chips', 'alcachofas-jamon', 'images/dumplings.png', 'risotto-negro', 'pad-thai'],
+    calientes: ['images/patatas-bravas.webp', 'satay-pollo', 'images/oreja-chili.webp', 'brocheta-kaffa', 'images/canelon.webp', 'albondigas-curry', 'croquetas-puchero', 'coliflor-frita', 'choquito', 'fish-chips', 'alcachofas-jamon', 'images/dumplings.webp', 'risotto-negro', 'pad-thai'],
     carnes: ['costilla-cerdo', 'san-jacobo', 'cochinillo', 'raviolis-toro', 'carnes-ibericas', 'solomillo-ternera'],
     manos: ['crispy-chicken', 'brioche-salmon', 'burger-buey', 'bao-manitas', 'saam-carrilleras', 'perrito-iberico', 'bikini-pato'],
-    postres: ['nido-postre', 'tiramisu', 'images/postre-tomate.png', 'tocino-cielo', 'limon-postre', 'tres-chocolates', 'chocolatisimo', 'coulant', 'tarta-queso', 'tarta-manzana']
+    postres: ['nido-postre', 'tiramisu', 'images/postre-tomate.webp', 'tocino-cielo', 'limon-postre', 'tres-chocolates', 'chocolatisimo', 'coulant', 'tarta-queso', 'tarta-manzana']
   };
 
   document.querySelectorAll('[data-menu]').forEach(section => {
