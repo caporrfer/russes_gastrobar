@@ -88,6 +88,18 @@
   }
 
   function setupReveal() {
+    const elements = document.querySelectorAll('.reveal');
+
+    // The content stays visible when IntersectionObserver is unavailable or
+    // JavaScript stops before this enhancement is initialized.
+    if (typeof window.IntersectionObserver !== 'function') return;
+
+    // A tall block can never reach a useful intersection ratio on a small
+    // screen. Keep those blocks visible instead of hiding a whole menu section.
+    const observedElements = Array.from(elements).filter(
+      (el) => el.getBoundingClientRect().height <= window.innerHeight - 24
+    );
+    observedElements.forEach((el) => el.classList.add('reveal-pending'));
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -95,8 +107,8 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+    observedElements.forEach((el) => observer.observe(el));
   }
 
   window.RussesPage = { renderHeader, renderFooter, setupReveal, PHONE, PHONE_DISPLAY };

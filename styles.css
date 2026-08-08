@@ -229,8 +229,13 @@ footer {
 }
 
 /* === Reveal === */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s, transform 0.9s; }
-.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal { opacity: 1; transform: none; }
+.reveal.reveal-pending {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s, transform 0.9s;
+}
+.reveal.reveal-pending.in { opacity: 1; transform: translateY(0); }
 
 /* === Responsive base === */
 @media (max-width: 960px) {
